@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import { createStackNavigator, createAppContainer } from "react-navigation";
 import { Text, View, Dimensions, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
-import NaatList from '../database/naat'
+import mauliHaripath from '../database/mauliHaripath'
 import { NavigationActions } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 const backAction = NavigationActions.back({
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
 });
 
 
-export default class Naat extends Component {
+export default class Haripath extends Component {
     onTouchCard = (detailAbhang,pageNo) => {
         this.props.navigation.navigate("FullAbhang", { fullAbhang: detailAbhang ,pageNo})
     }
@@ -54,7 +54,7 @@ export default class Naat extends Component {
                             alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
                             alignSelf: 'center', fontSize: 20, color: "white"
                         }}>
-                            {`नाटाचे अभंग`}
+                            {`हरिपाठ`}
                         </Text>
 
                     </View>
@@ -65,7 +65,7 @@ export default class Naat extends Component {
                         backgroundColor: "white"
                     }}>
                         {
-                            NaatList.map((item, i) =>
+                            mauliHaripath.map((item, i) =>
                                 <TouchableOpacity key={i} onPress={() => this.onTouchCard(item.fullAbhang,(i+1))}>
                                     <View style={styles.card}>
                                         <View style={{ margin: 10, alignContent: 'center', justifyContent: 'center' }}>

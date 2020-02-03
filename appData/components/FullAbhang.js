@@ -37,7 +37,7 @@ export default class FullAbhang extends Component {
 
         this.state = {
             isList: 1,
-            initialFontSize: 18,
+            initialFontSize: 16,
             visible: false,
             x: new Animated.Value(0),
             pageNo: newPageNo

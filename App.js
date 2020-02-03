@@ -15,6 +15,8 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 import Home from './appData/components/Home'
 import Naat from './appData/components/Naat'
 import FullAbhang from './appData/components/FullAbhang'
+import Haripth from './appData/components/Haripath'
+import HaripathList from './appData/components/HaripathList'
 
 const DRAWER_WIDTH = Dimensions.get('window').width * 0.83;
 
@@ -28,6 +30,12 @@ const RouteConfigs =
   },
   FullAbhang: {
     screen: FullAbhang
+  },
+  Haripath:{
+    screen:Haripth
+  },
+  HaripathList:{
+    screen:HaripathList
   }
 };
 

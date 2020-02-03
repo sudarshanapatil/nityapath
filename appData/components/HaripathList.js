@@ -10,31 +10,17 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 const data = [
     {
         id: 1,
-        name: "काकडा",
+        name: "ज्ञानदेव हरिपाठ",
         imagePath: require('../images/tp.jpg')
     },
     {
         id: 2,
-        name: "नाटाचे अभंग",
+        name: "नाज् हरिपाठ",
         imagePath: require('../images/tp.jpg')
     },
-    {
-        id: 3,
-        name: "तुकाराम महाराजांनी नित्यपाठासाठी स्वार्गाहून पाठविलेले अभंग",
-        imagePath: require('../images/tp.jpg')
-    },
-    {
-        id: 4,
-        name: "हरिपाठ",
-        imagePath: require('../images/tp.jpg')
-    },
-    {
-        id: 5,
-        name: "स्तोत्र",
-        imagePath: require('../images/tp.jpg')
-    }
+   
 ]
-export default class Home extends Component {
+export default class HaripathList extends Component {
     constructor() {
         super()
         this.state = {
@@ -61,7 +47,7 @@ export default class Home extends Component {
                 this.props.navigation.navigate("Index")
                 break;
             case 4:
-                this.props.navigation.navigate("HaripathList")
+                this.props.navigation.navigate("Haripath")
                 break;
         }
     }
