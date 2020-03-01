@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import { createStackNavigator, createAppContainer } from "react-navigation";
 import { Text, View, Dimensions, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
-//import NaatList from '../database/naat'
+import NiryanList from '../database/nirayn'
 import { NavigationActions } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 const backAction = NavigationActions.back({
@@ -24,17 +24,9 @@ const styles = StyleSheet.create({
 });
 
 
-export default class Naat extends Component {
-    constructor(props) {
-        super(props);
-        const { navigation } = props;
-        const NaatList = navigation.getParam('databaseList');
-        const tryThis = navigation.getParam('tryThis')
-        this.state =
-            { NaatList }
-    }
-    onTouchCard = (detailAbhang, pageNo) => {
-        this.props.navigation.navigate("FullAbhang", { fullAbhang: detailAbhang, pageNo })
+export default class Niryan extends Component {
+    onTouchCard = (detailAbhang,pageNo) => {
+        this.props.navigation.navigate("FullAbhang", { fullAbhang: detailAbhang ,pageNo})
     }
     goBack = () => {
         const { navigate } = this.props.navigation;
@@ -73,8 +65,8 @@ export default class Naat extends Component {
                         backgroundColor: "white"
                     }}>
                         {
-                            this.state.NaatList.map((item, i) =>
-                                <TouchableOpacity key={i} onPress={() => this.onTouchCard(item.fullAbhang, (i + 1))}>
+                            NiryanList.map((item, i) =>
+                                <TouchableOpacity key={i} onPress={() => this.onTouchCard(item.fullAbhang,(i+1))}>
                                     <View style={styles.card}>
                                         <View style={{ margin: 10, alignContent: 'center', justifyContent: 'center' }}>
                                             <Text style={styles.cardText}>

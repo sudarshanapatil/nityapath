@@ -6,6 +6,8 @@ import {
 } from 'react-native';
 const { width, height } = Dimensions.get('window');
 import { createStackNavigator, createAppContainer } from "react-navigation";
+import NathHaripath from '../database/nathHaripath'
+import MauliHaripath from '../database/mauliHaripath'
 
 const data = [
     {
@@ -15,39 +17,45 @@ const data = [
     },
     {
         id: 2,
-        name: "नाज् हरिपाठ",
+        name: "नाथ हरिपाठ",
         imagePath: require('../images/tp.jpg')
     },
-   
+    {
+        id: 2,
+        name: "निवृत्तीनाथ महाराज हरिपाठ",
+        imagePath: require('../images/tp.jpg')
+    },
+    {
+        id: 2,
+        name: "नामदेव महाराज हरिपाठ",
+        imagePath: require('../images/tp.jpg')
+    },
+    {
+        id: 2,
+        name: "तुकाराम महाराज हरिपाठ",
+        imagePath: require('../images/tp.jpg')
+    },
+
 ]
 export default class HaripathList extends Component {
     constructor() {
         super()
-        this.state = {
-            showSplash: 1
-        }
-    }
-    componentDidMount() {
-        setTimeout(() => {
-            this.setState({
-                showSplash: 0
-            })
-        }, 300)
+
     }
 
     onTouchCard = (id) => {
         switch (id) {
             case 1:
-                this.props.navigation.navigate("Abhang")
+                this.props.navigation.navigate("ShowList", { databaseList: MauliHaripath })
                 break;
             case 2:
-                this.props.navigation.navigate("Naat")
+                this.props.navigation.navigate("ShowList", { databaseList: NathHaripath })
                 break;
             case 3:
-                this.props.navigation.navigate("Index")
+                this.props.navigation.navigate("ShowList", { databaseList: MauliHaripath })
                 break;
             case 4:
-                this.props.navigation.navigate("Haripath")
+                this.props.navigation.navigate("ShowList", { databaseList: MauliHaripath })
                 break;
         }
     }
@@ -55,46 +63,40 @@ export default class HaripathList extends Component {
 
         return (
             <View>
-                {
-                    (this.state.showSplash) ? <View style={styles.viewStyle}>
-                        <Text>
-                            hii
-                        </Text>
-                    </View>
-                        :
-                        <View style={styles.viewStyle}>
-                            <View style={styles.navbar}>
-                                <Text style={styles.title}>
-                                    भजनी मालिका
+
+                <View style={styles.viewStyle}>
+                    <View style={styles.navbar}>
+                        <Text style={styles.title}>
+                            भजनी मालिका
                                 </Text>
-                            </View>
-                            <View style={styles.screenView}>
-                                <ScrollView>
-                                    <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', width }}>
-                                        {
-                                            data.map((item, i) =>
-                                                <TouchableOpacity key={item.key} onPress={() => this.onTouchCard(item.id)
-                                                }>
-                                                    <View style={styles.card}>
-                                                        <ImageBackground
-                                                            style={styles.backImage}
-                                                            source={item.imagePath}
-                                                            opacity={0.5}
-                                                            imageStyle={{ borderRadius: 6 }}
-                                                            resizeMode={'stretch'}>
-                                                            <View style={styles.imageText}>
-                                                                <Text style={styles.cardText}>{item.name}</Text>
-                                                            </View>
-                                                        </ImageBackground>
+                    </View>
+                    <View style={styles.screenView}>
+                        <ScrollView>
+                            <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', width }}>
+                                {
+                                    data.map((item, i) =>
+                                        <TouchableOpacity key={item.key} onPress={() => this.onTouchCard(item.id)
+                                        }>
+                                            <View style={styles.card}>
+                                                <ImageBackground
+                                                    style={styles.backImage}
+                                                    source={item.imagePath}
+                                                    opacity={0.5}
+                                                    imageStyle={{ borderRadius: 6 }}
+                                                    resizeMode={'stretch'}>
+                                                    <View style={styles.imageText}>
+                                                        <Text style={styles.cardText}>{item.name}</Text>
                                                     </View>
-                                                </TouchableOpacity>
-                                            )
-                                        }
-                                    </View>
-                                </ScrollView>
+                                                </ImageBackground>
+                                            </View>
+                                        </TouchableOpacity>
+                                    )
+                                }
                             </View>
-                        </View>
-                }
+                        </ScrollView>
+                    </View>
+                </View>
+
             </View>)
     }
 }

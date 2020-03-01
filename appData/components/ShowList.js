@@ -24,21 +24,32 @@ const styles = StyleSheet.create({
 });
 
 
-export default class Naat extends Component {
+export default class ShowList extends Component {
     constructor(props) {
         super(props);
         const { navigation } = props;
-        const NaatList = navigation.getParam('databaseList');
-        const tryThis = navigation.getParam('tryThis')
+        const ListName = navigation.getParam('databaseList');
+        const title=navigation.getParam('title')
+       // const tryThis = navigation.getParam('tryThis')
         this.state =
-            { NaatList }
+            { ListName ,title}
+        
+    }
+    UNSAFE_componentWillReceiveProps(props){
+        const { navigation } = props;
+        const ListName = navigation.getParam('databaseList');
+        const title=navigation.getParam('title')
+       // const tryThis = navigation.getParam('tryThis')
+        this.state =
+            { ListName ,title}
     }
     onTouchCard = (detailAbhang, pageNo) => {
-        this.props.navigation.navigate("FullAbhang", { fullAbhang: detailAbhang, pageNo })
+        this.props.navigation.navigate("FullAbhang", { fullAbhang: detailAbhang, pageNo,abhangList:this.state.ListName })
     }
     goBack = () => {
         const { navigate } = this.props.navigation;
         navigate('Home');
+       // this.setState({ListName:"",title:""})
     }
     render() {
         return (
@@ -62,7 +73,7 @@ export default class Naat extends Component {
                             alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
                             alignSelf: 'center', fontSize: 20, color: "white"
                         }}>
-                            {`नाटाचे अभंग`}
+                            {this.state.title}
                         </Text>
 
                     </View>
@@ -73,7 +84,7 @@ export default class Naat extends Component {
                         backgroundColor: "white"
                     }}>
                         {
-                            this.state.NaatList.map((item, i) =>
+                            this.state.ListName.map((item, i) =>
                                 <TouchableOpacity key={i} onPress={() => this.onTouchCard(item.fullAbhang, (i + 1))}>
                                     <View style={styles.card}>
                                         <View style={{ margin: 10, alignContent: 'center', justifyContent: 'center' }}>

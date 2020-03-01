@@ -17,6 +17,8 @@ import Naat from './appData/components/Naat'
 import FullAbhang from './appData/components/FullAbhang'
 import Haripth from './appData/components/Haripath'
 import HaripathList from './appData/components/HaripathList'
+import Niryan from './appData/components/Niryan'
+import ShowList from './appData/components/ShowList'
 
 const DRAWER_WIDTH = Dimensions.get('window').width * 0.83;
 
@@ -31,11 +33,18 @@ const RouteConfigs =
   FullAbhang: {
     screen: FullAbhang
   },
-  Haripath:{
-    screen:Haripth
+  Haripath: {
+    screen: Haripth
   },
-  HaripathList:{
-    screen:HaripathList
+  HaripathList: {
+    screen: HaripathList
+  },
+  Niryan: {
+    screen: Niryan
+  },
+  ShowList:
+  {
+    screen: ShowList
   }
 };
 

@@ -5,7 +5,7 @@ import {
     ImageBackground, AppRegistry, ToastAndroid, TouchableOpacity
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
-import abhangList from '../database/naat'
+//import abhangList from '../database/naat'
 
 const { width, height } = Dimensions.get('window');
 let style = StyleSheet.create({
@@ -34,46 +34,28 @@ export default class FullAbhang extends Component {
         super(props);
         const { navigation } = props;
         const newPageNo = navigation.getParam('pageNo', 1);
-
+        const abhangList = navigation.getParam('abhangList', 1);
         this.state = {
             isList: 1,
             initialFontSize: 16,
             visible: false,
             x: new Animated.Value(0),
-            pageNo: newPageNo
+            pageNo: newPageNo,
+            abhangList
         }
 
-        // TrackPlayer.registerEventHandler(() => { });
-        // TrackPlayer.setupPlayer().then(async () => {
-        //     await TrackPlayer.add({
-        //         id: 'trackId',
-        //         url: require('../audios/flute.mp3'),
-        //         title: 'Track Title',
-        //         artist: 'Track Artist',
-        //         artwork: require('../../images/specialPhotos/8.jpeg')
-        //     });
-        // })
-
     }
-    // componentWillReceiveProps(nextProps) {
-    //     const { navigation } = nextProps;
-    //     const newPageNo = navigation.getParam('pageNo', 0);
-    //     console.log(this.state, "state")
-    //     this.setState({
-    //         pageNo: newPageNo,
-    //     })
-    // }
-    // componentWillMount() {
-
-    //     // TrackPlayer.play()
-    // }
-
-    // componentWillUnmount() {
-
-    // }
-    componentDidMount() {
-
+    UNSAFE_componentWillReceiveProps(nextProps) {
+        const { navigation } = nextProps;
+        const newPageNo = navigation.getParam('pageNo', 0);
+        const abhangList = navigation.getParam('abhangList', 1);
+        this.setState({
+            pageNo: newPageNo,
+            abhangList
+        })
+        console.log(this.state, "state")
     }
+
     setPage = (pageType, listPageNo) => {
         let { pageNo, x } = this.state;
 
@@ -81,13 +63,13 @@ export default class FullAbhang extends Component {
             case "prev": {
                 pageNo--;
                 if (pageNo == 0)
-                    pageNo = abhangList.length
+                    pageNo = this.state.abhangList.length
                 x = new Animated.Value(-width)
                 break;
             }
             case "next": {
                 pageNo++;
-                if (pageNo == abhangList.length + 1) {
+                if (pageNo == this.state.abhangList.length + 1) {
                     pageNo = 1
                 }
                 x = new Animated.Value(width)
@@ -136,7 +118,7 @@ export default class FullAbhang extends Component {
                     fontSize: this.state.initialFontSize, color: '#000000',
                     fontFamily: 'Laila-Medium',
                 }}>
-                    {abhangList[pageNo - 1].fullAbhang}
+                    {this.state.abhangList[pageNo - 1].fullAbhang}
                 </Text>
                 {/* </ImageBackground> */}
             </Animated.View>

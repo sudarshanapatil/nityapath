@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import NaatList from '../database/naat'
+import NiryanAbhangList from '../database/nirayn'
+import StotraList from '../database/stotra'
 
 import {
     ScrollView, StyleSheet, Text, View, Image,
@@ -46,7 +49,7 @@ export default class Home extends Component {
             this.setState({
                 showSplash: 0
             })
-        }, 300)
+        }, 3000)
     }
 
     onTouchCard = (id) => {
@@ -55,13 +58,22 @@ export default class Home extends Component {
                 this.props.navigation.navigate("Abhang")
                 break;
             case 2:
-                this.props.navigation.navigate("Naat")
+                this.props.navigation.navigate("ShowList", { databaseList: NaatList })
                 break;
             case 3:
-                this.props.navigation.navigate("Index")
+                this.props.navigation.navigate("ShowList", {
+                    databaseList: NiryanAbhangList,
+                    title: "स्वार्गाहून पाठविलेले अभंग"
+                })
                 break;
             case 4:
                 this.props.navigation.navigate("HaripathList")
+                break;
+            case 5:
+                this.props.navigation.navigate("ShowList", {
+                    databaseList: StotraList,
+                    title: 'स्तोत्र'
+                })
                 break;
         }
     }
@@ -71,9 +83,23 @@ export default class Home extends Component {
             <View>
                 {
                     (this.state.showSplash) ? <View style={styles.viewStyle}>
-                        <Text>
-                            hii
-                        </Text>
+                        <View style={{ flex: 1, width, height }}>
+                            <ImageBackground
+                                style={{ width, height }}
+                                source={require('../images/splash.jpeg')}
+                                opacity={0.8}
+
+                            >
+                                <View style={{
+                                    flex: 1,
+                                    justifyContent: 'center', alignItems: 'center',
+                                    margin: 5, padding: 10, elevation: 7,
+
+                                }}>
+
+                                </View>
+                            </ImageBackground>
+                        </View>
                     </View>
                         :
                         <View style={styles.viewStyle}>
