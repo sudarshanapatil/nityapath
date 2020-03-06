@@ -19,6 +19,7 @@ import Haripth from './appData/components/Haripath'
 import HaripathList from './appData/components/HaripathList'
 import Niryan from './appData/components/Niryan'
 import ShowList from './appData/components/ShowList'
+import KakdaList from './appData/components/KakdaList'
 
 const DRAWER_WIDTH = Dimensions.get('window').width * 0.83;
 
@@ -45,6 +46,9 @@ const RouteConfigs =
   ShowList:
   {
     screen: ShowList
+  },
+  KakdaList:{
+    screen:KakdaList
   }
 };
 

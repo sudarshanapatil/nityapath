@@ -3,6 +3,7 @@ import NaatList from '../database/naat'
 import NiryanAbhangList from '../database/nirayn'
 import StotraList from '../database/stotra'
 
+
 import {
     ScrollView, StyleSheet, Text, View, Image,
     Dimensions, TouchableOpacity, ImageBackground
@@ -14,7 +15,7 @@ const data = [
     {
         id: 1,
         name: "काकडा",
-        imagePath: require('../images/tp.jpg')
+        imagePath: require('../images/kakda.jpeg')
     },
     {
         id: 2,
@@ -24,17 +25,17 @@ const data = [
     {
         id: 3,
         name: "तुकाराम महाराजांनी नित्यपाठासाठी स्वार्गाहून पाठविलेले अभंग",
-        imagePath: require('../images/tp.jpg')
+        imagePath: require('../images/niryaan.jpeg')
     },
     {
         id: 4,
         name: "हरिपाठ",
-        imagePath: require('../images/tp.jpg')
+        imagePath: require('../images/haripath.jpeg')
     },
     {
         id: 5,
         name: "स्तोत्र",
-        imagePath: require('../images/tp.jpg')
+        imagePath: require('../images/parayan.jpeg')
     }
 ]
 export default class Home extends Component {
@@ -55,7 +56,7 @@ export default class Home extends Component {
     onTouchCard = (id) => {
         switch (id) {
             case 1:
-                this.props.navigation.navigate("Abhang")
+                this.props.navigation.navigate("KakdaList")
                 break;
             case 2:
                 this.props.navigation.navigate("ShowList", { databaseList: NaatList })
@@ -119,7 +120,7 @@ export default class Home extends Component {
                                                         <ImageBackground
                                                             style={styles.backImage}
                                                             source={item.imagePath}
-                                                            opacity={0.5}
+                                                            opacity={0.4}
                                                             imageStyle={{ borderRadius: 6 }}
                                                             resizeMode={'stretch'}>
                                                             <View style={styles.imageText}>

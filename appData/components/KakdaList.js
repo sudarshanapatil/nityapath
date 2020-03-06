@@ -6,35 +6,62 @@ import {
 } from 'react-native';
 const { width, height } = Dimensions.get('window');
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import NathHaripath from '../database/nathHaripath'
+import Kakda1 from '../database/kakda1'
 import MauliHaripath from '../database/mauliHaripath'
 
 const data = [
     {
         id: 1,
-        name: "ज्ञानदेव हरिपाठ",
-        imagePath: require('../images/mauli.jpeg')
+        name: "मंगलाचरण पहिले ",
+        imagePath: require('../images/tp.jpg')
     },
     {
         id: 2,
-        name: "नाथ हरिपाठ",
-        imagePath: require('../images/nath.jpeg')
+        name: "मंगलाचरण दुसरे ",
+        imagePath: require('../images/tp.jpg')
     },
     {
-        id: 2,
-        name: "निवृत्तीनाथ महाराज हरिपाठ",
-        imagePath: require('../images/nivruttiNath.jpeg')
+        id: 3,
+        name: "मंगलाचरण तिसरे ",
+        imagePath: require('../images/tp.jpg')
     },
     {
-        id: 2,
-        name: "नामदेव महाराज हरिपाठ",
-        imagePath: require('../images/namdev.jpeg')
+        id: 3,
+        name: "काकडा आरती  ",
+        imagePath: require('../images/tp.jpg')
     },
     {
-        id: 2,
-        name: "तुकाराम महाराज हरिपाठ",
-        imagePath: require('../images/tukaramMhrj.jpeg')
+        id: 4,
+        name: "भूपाळ्याचे अभंग ",
+        imagePath: require('../images/tp.jpg')
     },
+    {
+        id: 4,
+        name: "मालिका ६ वी  ",
+        imagePath: require('../images/tp.jpg')
+    },
+    {
+        id: 4,
+        name: "मालिका ७ वी ",
+        imagePath: require('../images/tp.jpg')
+    },
+    
+    {
+        id: 4,
+        name: " वासुदेव  ",
+        imagePath: require('../images/tp.jpg')
+    },
+    {
+        id: 4,
+        name: "आंधळे-पांगुळ  ",
+        imagePath: require('../images/tp.jpg')
+    },
+    {
+        id: 4,
+        name: "गौळणी",
+        imagePath: require('../images/tp.jpg')
+    },
+    
 
 ]
 export default class HaripathList extends Component {
@@ -46,7 +73,7 @@ export default class HaripathList extends Component {
     onTouchCard = (id) => {
         switch (id) {
             case 1:
-                this.props.navigation.navigate("ShowList", { databaseList: MauliHaripath })
+                this.props.navigation.navigate("ShowList", { databaseList: Kakda1 })
                 break;
             case 2:
                 this.props.navigation.navigate("ShowList", { databaseList: NathHaripath })
@@ -78,16 +105,9 @@ export default class HaripathList extends Component {
                                         <TouchableOpacity key={item.key} onPress={() => this.onTouchCard(item.id)
                                         }>
                                             <View style={styles.card}>
-                                                <ImageBackground
-                                                    style={styles.backImage}
-                                                    source={item.imagePath}
-                                                    opacity={0.5}
-                                                    imageStyle={{ borderRadius: 6 }}
-                                                    resizeMode={'stretch'}>
-                                                    <View style={styles.imageText}>
-                                                        <Text style={styles.cardText}>{item.name}</Text>
-                                                    </View>
-                                                </ImageBackground>
+                                                <View style={styles.imageText}>
+                                                    <Text style={styles.cardText}>{item.name}</Text>
+                                                </View>
                                             </View>
                                         </TouchableOpacity>
                                     )
@@ -125,9 +145,9 @@ const styles = StyleSheet.create(
         },
         card: {
             width: width / 2 - 10,
-            height: height / 3 - 40,
+            height: height / 6 - 40,
             margin: 5,
-            backgroundColor: 'white',
+            backgroundColor: 'lightblue',
             elevation: 10,
             alignItems: 'center',
             justifyContent: 'center',
