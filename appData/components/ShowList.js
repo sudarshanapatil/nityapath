@@ -62,9 +62,9 @@ export default class ShowList extends Component {
                     width: width, height: 50, backgroundColor: 'darkcyan'
                 }}>
                     <View style={{
-                        width: 50, height: 50, alignItems: 'center', justifyContent: 'center'
+                        width: 70, height: 50, alignItems: 'center', justifyContent: 'center',backgroundColor:'white'
                     }}>
-                        <Icon name="arrow-left" size={25} color="white" onPress={() => this.goBack()} />
+                        <Icon name="heart" size={30} color="pink" onPress={() => this.goBack()} />
                     </View>
                     <View style={{
                         width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'

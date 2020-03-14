@@ -36,6 +36,11 @@ const data = [
         id: 5,
         name: "स्तोत्र",
         imagePath: require('../images/parayan.jpeg')
+    },
+    {
+        id: 6,
+        name: "आरती संग्रह ",
+        imagePath: require('../images/kakda.jpeg')
     }
 ]
 export default class Home extends Component {
@@ -71,10 +76,7 @@ export default class Home extends Component {
                 this.props.navigation.navigate("HaripathList")
                 break;
             case 5:
-                this.props.navigation.navigate("ShowList", {
-                    databaseList: StotraList,
-                    title: 'स्तोत्र'
-                })
+                this.props.navigation.navigate("StotraList")
                 break;
         }
     }
@@ -164,7 +166,7 @@ const styles = StyleSheet.create(
         },
         card: {
             width: width / 2 - 10,
-            height: height / 3 - 40,
+            height: height / 4 - 40,
             margin: 5,
             backgroundColor: 'white',
             elevation: 10,
@@ -175,7 +177,7 @@ const styles = StyleSheet.create(
         },
         backImage: {
             width: width / 2 - 10,
-            height: height / 3 - 40,
+            height: height / 4 - 40,
         },
         imageText: {
             width: width / 2 - 8,
