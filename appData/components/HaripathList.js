@@ -47,13 +47,15 @@ export default class HaripathList extends Component {
 
     }
 
-    UNSAFE_componentWillMount(){
-        fetch("https://raw.githubusercontent.com/sudarshanapatil/savedfiles/master/mauliHaripath.js")
-        .then(response => {
-            console.log(response,"API ")
+    componentDidMount(){
+        fetch("https://sudarshanapatil.github.io/savedfiles/mauliHaripath.json")
+        .then(res => {
+            return res.json()
+            // console.log(res,"here API data" )
         })
-        .then((responseJson)=> {
-             console.log(responseJson.body,"API data 1")
+        .then((data)=> {
+
+             console.log(data,"API data 1")
         //   this.setState({
         //    loading: false,
         //    MauliHaripath: responseJson
