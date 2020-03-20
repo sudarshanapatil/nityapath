@@ -49,10 +49,7 @@ export default class HaripathList extends Component {
 
     componentDidMount(){
         fetch("https://sudarshanapatil.github.io/savedfiles/mauliHaripath.json")
-        .then(res => {
-            return res.json()
-            // console.log(res,"here API data" )
-        })
+        .then(res =>  res.json())
         .then((data)=> {
 
              console.log(data,"API data 1")
