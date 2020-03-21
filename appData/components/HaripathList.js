@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import {
     ScrollView, StyleSheet, Text, View, Image,
     Dimensions, TouchableOpacity, ImageBackground
@@ -7,7 +6,7 @@ import {
 const { width, height } = Dimensions.get('window');
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import NathHaripath from '../database/nathHaripath'
-import MauliHaripath from '../database/mauliHaripath'
+// import MauliHaripath from '../database/mauliHaripath'
 
 const data = [
     {
@@ -21,17 +20,17 @@ const data = [
         imagePath: require('../images/nath.jpeg')
     },
     {
-        id: 2,
+        id: 3,
         name: "निवृत्तीनाथ महाराज हरिपाठ",
         imagePath: require('../images/nivruttiNath.jpeg')
     },
     {
-        id: 2,
+        id: 4,
         name: "नामदेव महाराज हरिपाठ",
         imagePath: require('../images/namdev.jpeg')
     },
     {
-        id: 2,
+        id: 5,
         name: "तुकाराम महाराज हरिपाठ",
         imagePath: require('../images/tukaramMhrj.jpeg')
     },
@@ -40,41 +39,21 @@ const data = [
 export default class HaripathList extends Component {
     constructor() {
         super()
-        this.state={
-            MauliHaripath:'',
-            loading:true
-        }
-
-    }
-
-    componentDidMount(){
-        fetch("https://sudarshanapatil.github.io/savedfiles/mauliHaripath.json")
-        .then(res =>  res.json())
-        .then((data)=> {
-
-             console.log(data,"API data 1")
-        //   this.setState({
-        //    loading: false,
-        //    MauliHaripath: responseJson
-        //   })
-        })
-        .catch(error=>console.log(error,"here")) //to catch the errors if any
-        
     }
 
     onTouchCard = (id) => {
         switch (id) {
             case 1:
-                this.props.navigation.navigate("ShowList", { databaseList: MauliHaripath })
+                this.props.navigation.navigate("ShowList", { folderName:'haripath',databaseList: "mauliHaripath", title: 'ज्ञानदेव हरिपाठ' })
                 break;
             case 2:
-                this.props.navigation.navigate("ShowList", { databaseList: NathHaripath })
+                this.props.navigation.navigate("ShowList", { folderName:'haripath',databaseList: 'nathHaripath', title: 'नाथ हरिपाठ' })
                 break;
             case 3:
-                this.props.navigation.navigate("ShowList", { databaseList: MauliHaripath })
+                this.props.navigation.navigate("ShowList", { folderName:'haripath',databaseList: MauliHaripath })
                 break;
             case 4:
-                this.props.navigation.navigate("ShowList", { databaseList: MauliHaripath })
+                this.props.navigation.navigate("ShowList", { folderName:'haripath',databaseList: MauliHaripath })
                 break;
         }
     }

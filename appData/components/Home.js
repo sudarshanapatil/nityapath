@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import NaatList from '../database/naat'
-import NiryanAbhangList from '../database/nirayn'
+// import NaatList from '../database/naat'
+// import NiryanAbhangList from '../database/nirayn'
 import StotraList from '../database/stotra'
 
 
@@ -64,11 +64,12 @@ export default class Home extends Component {
                 this.props.navigation.navigate("KakdaList")
                 break;
             case 2:
-                this.props.navigation.navigate("ShowList", { databaseList: NaatList })
+                this.props.navigation.navigate("ShowList", { folderName:'naat',databaseList: 'naat',title:'नाटाचे अभंग' })
                 break;
             case 3:
                 this.props.navigation.navigate("ShowList", {
-                    databaseList: NiryanAbhangList,
+                    folderName:'twelveAbhanga',
+                    databaseList: 'twelveAbhanga',
                     title: "स्वार्गाहून पाठविलेले अभंग"
                 })
                 break;

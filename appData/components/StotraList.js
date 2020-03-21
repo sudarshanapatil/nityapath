@@ -35,8 +35,6 @@ const data = [
         name: "विष्णुसहत्र",
         imagePath: require('../images/tp.jpg')
     },
-   
-    
 
 ]
 export default class StotraList extends Component {
@@ -45,13 +43,14 @@ export default class StotraList extends Component {
 
     }
 
+   
     onTouchCard = (id) => {
         switch (id) {
             case 1:
-                this.props.navigation.navigate("ShowList", { databaseList: Kakda1 })
+                this.props.navigation.navigate("ShowOnePage", { name:'pandurangashtakam', title:'पाण्डुरङ्गाष्टकं' })
                 break;
             case 2:
-                this.props.navigation.navigate("ShowList", { databaseList: NathHaripath })
+                this.props.navigation.navigate("ShowOnePage", { name:'ramraksha', title:'श्री रामरक्षास्तोत्रम्' })
                 break;
             case 3:
                 this.props.navigation.navigate("ShowList", { databaseList: MauliHaripath })

@@ -21,6 +21,7 @@ import Niryan from './appData/components/Niryan'
 import ShowList from './appData/components/ShowList'
 import KakdaList from './appData/components/KakdaList'
 import StotraList from './appData/components/StotraList'
+import ShowOnePage from './appData/components/ShowOnePage'
 
 const DRAWER_WIDTH = Dimensions.get('window').width * 0.83;
 
@@ -53,6 +54,9 @@ const RouteConfigs =
   }, 
   StotraList: {
     screen: StotraList
+  },
+  ShowOnePage:{
+    screen:ShowOnePage
   }
 };
 

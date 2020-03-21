@@ -28,28 +28,55 @@ export default class ShowList extends Component {
     constructor(props) {
         super(props);
         const { navigation } = props;
-        const ListName = navigation.getParam('databaseList');
-        const title=navigation.getParam('title')
-       // const tryThis = navigation.getParam('tryThis')
+        const listName = navigation.getParam('databaseList');
+        const title = navigation.getParam('title');
+        const folderName=navigation.getParam('folderName');
+        console.log("in constructor", listName, title)
         this.state =
-            { ListName ,title}
-        
+            { listData: [], title, listName,folderName }
+
     }
-    UNSAFE_componentWillReceiveProps(props){
+
+    fetchApi = (apiName) => {
+        
+        console.log("API URL", url,this.state.folderName)
+        let url = `https://sudarshanapatil.github.io/savedfiles/${this.state.folderName}/${apiName}.json`
+        console.log("API URL", url)
+        fetch(url)
+            .then(res => res.json())
+            .then((data) => {
+                // console.log(data, "API data")
+                this.setState({
+                    loading: false,
+                    listData: data
+                })
+            })
+            .catch(error => console.log(error, "here")) //to catch the errors if any
+    }
+
+    componentDidMount() {
+        console.log("in did mount")
+        let listName = this.state.listName;
+        this.fetchApi(listName)
+    }
+
+
+    UNSAFE_componentWillReceiveProps(props) {
+        console.log("in will props")
         const { navigation } = props;
-        const ListName = navigation.getParam('databaseList');
-        const title=navigation.getParam('title')
-       // const tryThis = navigation.getParam('tryThis')
-        this.state =
-            { ListName ,title}
+        const listName = navigation.getParam('databaseList');
+        const title = navigation.getParam('title')
+        const folderName=navigation.getParam('folderName');
+        this.setState({ listName, title,folderName })
+        this.fetchApi(listName)
     }
     onTouchCard = (detailAbhang, pageNo) => {
-        this.props.navigation.navigate("FullAbhang", { fullAbhang: detailAbhang, pageNo,abhangList:this.state.ListName })
+        this.props.navigation.navigate("FullAbhang", { fullAbhang: detailAbhang, pageNo, abhangList: this.state.listData })
     }
     goBack = () => {
         const { navigate } = this.props.navigation;
         navigate('Home');
-       // this.setState({ListName:"",title:""})
+        // this.setState({ListName:"",title:""})
     }
     render() {
         return (
@@ -62,7 +89,7 @@ export default class ShowList extends Component {
                     width: width, height: 50, backgroundColor: 'darkcyan'
                 }}>
                     <View style={{
-                        width: 70, height: 50, alignItems: 'center', justifyContent: 'center',backgroundColor:'white'
+                        width: 70, height: 50, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white'
                     }}>
                         <Icon name="heart" size={30} color="pink" onPress={() => this.goBack()} />
                     </View>
@@ -84,7 +111,7 @@ export default class ShowList extends Component {
                         backgroundColor: "white"
                     }}>
                         {
-                            this.state.ListName.map((item, i) =>
+                            this.state.listData.map((item, i) =>
                                 <TouchableOpacity key={i} onPress={() => this.onTouchCard(item.fullAbhang, (i + 1))}>
                                     <View style={styles.card}>
                                         <View style={{ margin: 10, alignContent: 'center', justifyContent: 'center' }}>
