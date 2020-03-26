@@ -41,6 +41,11 @@ const data = [
         id: 6,
         name: "आरती संग्रह ",
         imagePath: require('../images/kakda.jpeg')
+    },
+    {
+        id: 7,
+        name: "Naamsmaran",
+        imagePath: require('../images/kakda.jpeg')
     }
 ]
 export default class Home extends Component {
@@ -64,11 +69,11 @@ export default class Home extends Component {
                 this.props.navigation.navigate("KakdaList")
                 break;
             case 2:
-                this.props.navigation.navigate("ShowList", { folderName:'naat',databaseList: 'naat',title:'नाटाचे अभंग' })
+                this.props.navigation.navigate("ShowList", { folderName: 'naat', databaseList: 'naat', title: 'नाटाचे अभंग' })
                 break;
             case 3:
                 this.props.navigation.navigate("ShowList", {
-                    folderName:'twelveAbhanga',
+                    folderName: 'twelveAbhanga',
                     databaseList: 'twelveAbhanga',
                     title: "स्वार्गाहून पाठविलेले अभंग"
                 })
@@ -78,6 +83,9 @@ export default class Home extends Component {
                 break;
             case 5:
                 this.props.navigation.navigate("StotraList")
+                break;
+            case 7:
+                this.props.navigation.navigate("Naamjap",{title:"Naamjap"})
                 break;
         }
     }

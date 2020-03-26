@@ -22,6 +22,7 @@ import ShowList from './appData/components/ShowList'
 import KakdaList from './appData/components/KakdaList'
 import StotraList from './appData/components/StotraList'
 import ShowOnePage from './appData/components/ShowOnePage'
+import Naamjap from './appData/components/Naamjap'
 
 const DRAWER_WIDTH = Dimensions.get('window').width * 0.83;
 
@@ -57,6 +58,9 @@ const RouteConfigs =
   },
   ShowOnePage:{
     screen:ShowOnePage
+  },
+  Naamjap:{
+    screen:Naamjap
   }
 };
 
