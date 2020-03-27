@@ -85,11 +85,10 @@ export default class Home extends Component {
         }
     }
     render() {
-
         return (
             <View>
                 {
-                    (this.state.showSplash) ? <View style={styles.viewStyle}>
+                    (this.state.showSplash) ? <View style={style.viewStyle}>
                         <View style={{ flex: 1, width, height }}>
                             <ImageBackground
                                 style={{ width, height }}
@@ -103,28 +102,28 @@ export default class Home extends Component {
                         </View>
                     </View>
                         :
-                        <View style={styles.viewStyle}>
-                            <View style={styles.navbar}>
-                                <Text style={styles.title}>
+                        <View style={style.viewStyle}>
+                            <View style={style.navbar}>
+                                <Text style={style.title}>
                                     भजनी मालिका
                                 </Text>
                             </View>
-                            <View style={styles.screenView}>
+                            <View style={style.screenView}>
                                 <ScrollView>
                                     <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', width }}>
                                         {
                                             data.map((item, i) =>
                                                 <TouchableOpacity key={item.key} onPress={() => this.onTouchCard(item.id)
                                                 }>
-                                                    <View style={styles.card}>
+                                                    <View style={style.card}>
                                                         <ImageBackground
-                                                            style={styles.backImage}
+                                                            style={style.backImage}
                                                             source={item.imagePath}
                                                             opacity={0.4}
                                                             imageStyle={{ borderRadius: 6 }}
                                                             resizeMode={'stretch'}>
-                                                            <View style={styles.imageText}>
-                                                                <Text style={styles.cardText}>{item.name}</Text>
+                                                            <View style={style.imageText}>
+                                                                <Text style={style.cardText}>{item.name}</Text>
                                                             </View>
                                                         </ImageBackground>
                                                     </View>
@@ -140,7 +139,7 @@ export default class Home extends Component {
     }
 }
 
-const styles = StyleSheet.create(
+const style = StyleSheet.create(
     {
         viewStyle: {
             width,

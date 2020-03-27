@@ -82,9 +82,9 @@ export default class ShowList extends Component {
                         {
                             this.state.listData.map((item, i) =>
                                 <TouchableOpacity key={i} onPress={() => this.onTouchCard(item.fullAbhang, (i + 1))}>
-                                    <View style={styles.card}>
+                                    <View style={style.card}>
                                         <View style={{ margin: 10, alignContent: 'center', justifyContent: 'center' }}>
-                                            <Text style={styles.cardText}>
+                                            <Text style={style.cardText}>
                                                 {item.initial}
                                             </Text>
                                         </View>
@@ -97,7 +97,7 @@ export default class ShowList extends Component {
         )
     }
 }
-const styles = StyleSheet.create({
+const style = StyleSheet.create({
     container: {
         flex: 1,
         width: width, height: height, backgroundColor: 'white'
