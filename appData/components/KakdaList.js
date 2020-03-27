@@ -90,7 +90,6 @@ export default class HaripathList extends Component {
 
         return (
             <View>
-
                 <View style={styles.viewStyle}>
                     <View style={styles.navbar}>
                         <Text style={styles.title}>
@@ -168,7 +167,5 @@ const styles = StyleSheet.create(
             fontSize: 20,
             fontWeight: 'bold'
         }
-
-
     }
 )

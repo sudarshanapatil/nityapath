@@ -8,21 +8,7 @@ import { NavigationActions } from 'react-navigation';
 //import abhangList from '../database/naat'
 
 const { width, height } = Dimensions.get('window');
-let style = StyleSheet.create({
-    backgroundImage: {
-        flex: 1,
-        resizeMode: 'cover'
-    },
-    fontButton: {
-        width: 40, height: 40,
-        borderRadius: 20, justifyContent: 'center', alignItems: 'center', margin: 2
-    },
-    fontView: {
-        width: width / 4, height: 50, justifyContent: 'center',
-        alignItems: 'center'
-    },
-    navButtons: { width: width / 3, height: 50, alignItems: 'center', justifyContent: 'center' }
-})
+
 // import TrackPlayer from 'react-native-track-player';
 //import console = require('console');
 //AppRegistry.registerComponent('appname', () => App);
@@ -38,7 +24,7 @@ export default class FullAbhang extends Component {
         this.state = {
             title,
             initialFontSize: 14,
-            data:'',
+            data: '',
             name
         }
 
@@ -61,7 +47,7 @@ export default class FullAbhang extends Component {
     }
 
     componentDidMount(apiName) {
-        this.fetchApi(this.state.name,'stotra')
+        this.fetchApi(this.state.name, 'stotra')
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
@@ -132,25 +118,13 @@ export default class FullAbhang extends Component {
         // const listPageNo = navigation.getParam('pageNo', 0)
         const fullAbhang = navigation.getParam('fullAbhang', `देह जावो अथवा राहो ।\n तुझे नामी धरीला भावो ॥\n\n तुझ्या पायाचा विश्वास ।\n म्हणोनिया झालो दास ॥\n\n तुझे रूप माझे मनी ।\n तेची ठसविले ध्यानी ॥\n\n कदा न फिरे माघारी ।\n बाळा म्हणे कृपा करी ॥`)
         return (
-            <View style={{
-                flex: 1, width, height
-            }}>
-                  <View style={{
-                    justifyContent: 'center', flexDirection: 'row',
-                    width: width, height: 50, backgroundColor: 'darkcyan'
-                }}>
-                    <View style={{
-                        width: 70, height: 50, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white'
-                    }}>
+            <View style={style.container}>
+                <View style={style.navbar}>
+                    <View style={style.backButton}>
                         <Icon name="heart" size={30} color="pink" onPress={() => this.goBack()} />
                     </View>
-                    <View style={{
-                        width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'
-                    }} >
-                        <Text style={{
-                            alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
-                            alignSelf: 'center', fontSize: 20, color: "white"
-                        }}>
+                    <View style={style.navTitle} >
+                        <Text style={style.textNavTitle}>
                             {this.state.title}
                         </Text>
 
@@ -159,10 +133,7 @@ export default class FullAbhang extends Component {
                 {
                     this.renderPage()
                 }
-                <View style={{
-                    width, height: 50, position: 'absolute', alignItems: 'center',
-                    bottom: 0, left: 0, flexDirection: "row", backgroundColor: '#e9fcf6', elevation: 5
-                }}>
+                <View style={style.contentView}>
                     <View style={style.fontView}>
                         <TouchableOpacity onPress={() => this.increaseFont("minus")}>
                             <View style={style.fontButton}>
@@ -182,3 +153,41 @@ export default class FullAbhang extends Component {
             </View>)
     }
 }
+
+let style = StyleSheet.create({
+    container: {
+        flex: 1,
+        width: width, height: height, backgroundColor: 'white'
+    },
+    navbar: {
+        justifyContent: 'center', flexDirection: 'row',
+        width: width, height: 50, backgroundColor: 'darkcyan'
+    },
+    backButton: {
+        width: 50, height: 50, alignItems: 'center', justifyContent: 'center'
+    },
+    navTitle: {
+        width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'
+    },
+    textNavTitle: {
+        alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
+        alignSelf: 'center', fontSize: 20, color: "white"
+    },
+    contentView: {
+        width, height: 50, position: 'absolute', alignItems: 'center',
+        bottom: 0, left: 0, flexDirection: "row", backgroundColor: '#e9fcf6', elevation: 5
+    },
+    backgroundImage: {
+        flex: 1,
+        resizeMode: 'cover'
+    },
+    fontButton: {
+        width: 40, height: 40,
+        borderRadius: 20, justifyContent: 'center', alignItems: 'center', margin: 2
+    },
+    fontView: {
+        width: width / 4, height: 50, justifyContent: 'center',
+        alignItems: 'center'
+    },
+    navButtons: { width: width / 3, height: 50, alignItems: 'center', justifyContent: 'center' }
+})

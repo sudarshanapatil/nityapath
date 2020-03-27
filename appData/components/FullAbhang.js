@@ -8,21 +8,7 @@ import { NavigationActions } from 'react-navigation';
 //import abhangList from '../database/naat'
 
 const { width, height } = Dimensions.get('window');
-let style = StyleSheet.create({
-    backgroundImage: {
-        flex: 1,
-        resizeMode: 'cover'
-    },
-    fontButton: {
-        width: 40, height: 40,
-        borderRadius: 20, justifyContent: 'center', alignItems: 'center', margin: 2
-    },
-    fontView: {
-        width: width / 4, height: 50, justifyContent: 'center',
-        alignItems: 'center'
-    },
-    navButtons: { width: width / 3, height: 50, alignItems: 'center', justifyContent: 'center' }
-})
+
 // import TrackPlayer from 'react-native-track-player';
 //import console = require('console');
 //AppRegistry.registerComponent('appname', () => App);
@@ -167,12 +153,8 @@ export default class FullAbhang extends Component {
         const listPageNo = navigation.getParam('pageNo', 0)
         const fullAbhang = navigation.getParam('fullAbhang', `देह जावो अथवा राहो ।\n तुझे नामी धरीला भावो ॥\n\n तुझ्या पायाचा विश्वास ।\n म्हणोनिया झालो दास ॥\n\n तुझे रूप माझे मनी ।\n तेची ठसविले ध्यानी ॥\n\n कदा न फिरे माघारी ।\n बाळा म्हणे कृपा करी ॥`)
         return (
-            <View style={{
-                flex: 1, width, height
-            }}>
-                <View style={{
-                    width, height: 50, backgroundColor: "darkcyan"
-                }}>
+            <View style={style.container}>
+                <View style={style.navbar}>
                     <View style={{ flexDirection: 'row', alignContent: "flex-end", justifyContent: "flex-end" }}>
                         <View style={style.navButtons}>
                             <Icon name="arrow-left" size={30} color="white" onPress={() => this.goBack()} />
@@ -233,3 +215,24 @@ export default class FullAbhang extends Component {
             </View>)
     }
 }
+let style = StyleSheet.create({
+    backgroundImage: {
+        flex: 1,
+        resizeMode: 'cover'
+    },
+    fontButton: {
+        width: 40, height: 40,
+        borderRadius: 20, justifyContent: 'center', alignItems: 'center', margin: 2
+    },
+    fontView: {
+        width: width / 4, height: 50, justifyContent: 'center',
+        alignItems: 'center'
+    },
+    navButtons: { width: width / 3, height: 50, alignItems: 'center', justifyContent: 'center' },
+    navbar: {
+        width, height: 50, backgroundColor: "darkcyan"
+    },
+    container:{
+        flex: 1, width, height
+    }
+})

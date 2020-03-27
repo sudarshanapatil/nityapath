@@ -8,24 +8,7 @@ import { NavigationActions } from 'react-navigation';
 //import abhangList from '../database/naat'
 
 const { width, height } = Dimensions.get('window');
-let style = StyleSheet.create({
-    backgroundImage: {
-        flex: 1,
-        resizeMode: 'cover'
-    },
-    fontButton: {
-        width: 40, height: 40,
-        borderRadius: 20, justifyContent: 'center', alignItems: 'center', margin: 2
-    },
-    fontView: {
-        width: width / 4, height: 50, justifyContent: 'center',
-        alignItems: 'center'
-    },
-    navButtons: { width: width / 3, height: 50, alignItems: 'center', justifyContent: 'center' },
-    naapjapButton: {
-        width: 100, height: 100, backgroundColor: 'pink', borderRadius: 50, alignContent: 'center', alignItems: 'center', justifyContent: 'center'
-    }
-})
+
 // import TrackPlayer from 'react-native-track-player';
 //import console = require('console');
 //AppRegistry.registerComponent('appname', () => App);
@@ -42,27 +25,27 @@ export default class Naamjap extends Component {
             title,
             count: 0,
             maal: 0,
-            totalCount:0
+            totalCount: 0
         }
 
     }
-   
+
     onTouchCard = () => {
         let count = this.state.count;
-        let totalCount=this.state.totalCount
+        let totalCount = this.state.totalCount
         count++;
         totalCount++;
 
-        
+
         if (count === 108) {
             let maal;
             maal = this.state.maal
             maal++
-            count=0
-            this.setState({ maal,count,totalCount })
+            count = 0
+            this.setState({ maal, count, totalCount })
         }
-        else{
-            this.setState({ count,totalCount })
+        else {
+            this.setState({ count, totalCount })
         }
 
     }
@@ -117,25 +100,13 @@ export default class Naamjap extends Component {
         // const listPageNo = navigation.getParam('pageNo', 0)
         const fullAbhang = navigation.getParam('fullAbhang', `देह जावो अथवा राहो ।\n तुझे नामी धरीला भावो ॥\n\n तुझ्या पायाचा विश्वास ।\n म्हणोनिया झालो दास ॥\n\n तुझे रूप माझे मनी ।\n तेची ठसविले ध्यानी ॥\n\n कदा न फिरे माघारी ।\n बाळा म्हणे कृपा करी ॥`)
         return (
-            <View style={{
-                flex: 1, width, height
-            }}>
-                <View style={{
-                    justifyContent: 'center', flexDirection: 'row',
-                    width: width, height: 50, backgroundColor: 'darkcyan'
-                }}>
-                    <View style={{
-                        width: 70, height: 50, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white'
-                    }}>
+            <View style={style.container}>
+                <View style={style.navbar}>
+                    <View style={style.backButton}>
                         <Icon name="heart" size={30} color="pink" onPress={() => this.goBack()} />
                     </View>
-                    <View style={{
-                        width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'
-                    }} >
-                        <Text style={{
-                            alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
-                            alignSelf: 'center', fontSize: 20, color: "white"
-                        }}>
+                    <View style={style.navTitle} >
+                        <Text style={style.navTextStyle}>
                             नामजप
                         </Text>
 
@@ -145,33 +116,21 @@ export default class Naamjap extends Component {
                     flex: 1, height: height - 50, alignContent: 'center', alignItems: 'center', justifyContent: 'center'
                 }}>
                     <View style={{ backgroundColor: 'white', width, height: 100, }}>
-                         <Text style={{
-                            alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
-                            alignSelf: 'center', fontSize: 20, color: "teal"
-                        }}>
+                        <Text style={style.textStyle}>
                             संपूर्ण नामजप   - {this.state.totalCount}
                         </Text>
-                        <Text style={{
-                            alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
-                            alignSelf: 'center', fontSize: 20, color: "teal"
-                        }}>
+                        <Text style={style.textStyle}>
                             जपमाळ  - {this.state.maal}
                         </Text>
-                        <Text style={{
-                            alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
-                            alignSelf: 'center', fontSize: 20, color: "teal"
-                        }}>
+                        <Text style={style.textStyle}>
                             जपसंख्या  - {this.state.count}
                         </Text>
                     </View>
                     <TouchableOpacity key={8} onPress={() => this.onTouchCard(this.state.count)
                     }>
                         <View style={style.naapjapButton} >
-                        <Text style={{
-                            alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
-                            alignSelf: 'center', fontSize: 20, color: "white"
-                        }}>
-                             राम कृष्ण हरि    
+                            <Text style={style.navTextStyle}>
+                                राम कृष्ण हरि
                         </Text>
                         </View>
                     </TouchableOpacity>
@@ -181,3 +140,42 @@ export default class Naamjap extends Component {
             </View>)
     }
 }
+let style = StyleSheet.create({
+    container: {
+        flex: 1, width, height
+    },
+    navbar: {
+        justifyContent: 'center', flexDirection: 'row',
+        width: width, height: 50, backgroundColor: 'darkcyan'
+    },
+    backButton: {
+        width: 70, height: 50, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white'
+    },
+    navTitle: {
+        width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'
+    },
+    navTextStyle: {
+        alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
+        alignSelf: 'center', fontSize: 20, color: "white"
+    },
+    textStyle: {
+        alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
+        alignSelf: 'center', fontSize: 20, color: "teal"
+    },
+    backgroundImage: {
+        flex: 1,
+        resizeMode: 'cover'
+    },
+    fontButton: {
+        width: 40, height: 40,
+        borderRadius: 20, justifyContent: 'center', alignItems: 'center', margin: 2
+    },
+    fontView: {
+        width: width / 4, height: 50, justifyContent: 'center',
+        alignItems: 'center'
+    },
+    navButtons: { width: width / 3, height: 50, alignItems: 'center', justifyContent: 'center' },
+    naapjapButton: {
+        width: 100, height: 100, backgroundColor: 'pink', borderRadius: 50, alignContent: 'center', alignItems: 'center', justifyContent: 'center'
+    }
+})

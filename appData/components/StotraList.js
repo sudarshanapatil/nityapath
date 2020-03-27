@@ -8,7 +8,6 @@ const { width, height } = Dimensions.get('window');
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import Kakda1 from '../database/kakda1'
 import MauliHaripath from '../database/mauliHaripath'
-
 const data = [
     {
         id: 1,
@@ -42,15 +41,13 @@ export default class StotraList extends Component {
         super()
 
     }
-
-   
     onTouchCard = (id) => {
         switch (id) {
             case 1:
-                this.props.navigation.navigate("ShowOnePage", { name:'pandurangashtakam', title:'पाण्डुरङ्गाष्टकं' })
+                this.props.navigation.navigate("ShowOnePage", { name: 'pandurangashtakam', title: 'पाण्डुरङ्गाष्टकं' })
                 break;
             case 2:
-                this.props.navigation.navigate("ShowOnePage", { name:'ramraksha', title:'श्री रामरक्षास्तोत्रम्' })
+                this.props.navigation.navigate("ShowOnePage", { name: 'ramraksha', title: 'श्री रामरक्षास्तोत्रम्' })
                 break;
             case 3:
                 this.props.navigation.navigate("ShowList", { databaseList: MauliHaripath })
@@ -61,10 +58,8 @@ export default class StotraList extends Component {
         }
     }
     render() {
-
         return (
             <View>
-
                 <View style={styles.viewStyle}>
                     <View style={styles.navbar}>
                         <Text style={styles.title}>

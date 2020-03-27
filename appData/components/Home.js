@@ -1,9 +1,4 @@
 import React, { Component } from 'react';
-// import NaatList from '../database/naat'
-// import NiryanAbhangList from '../database/nirayn'
-import StotraList from '../database/stotra'
-
-
 import {
     ScrollView, StyleSheet, Text, View, Image,
     Dimensions, TouchableOpacity, ImageBackground
@@ -85,7 +80,7 @@ export default class Home extends Component {
                 this.props.navigation.navigate("StotraList")
                 break;
             case 7:
-                this.props.navigation.navigate("Naamjap",{title:"Naamjap"})
+                this.props.navigation.navigate("Naamjap", { title: "Naamjap" })
                 break;
         }
     }
@@ -102,13 +97,7 @@ export default class Home extends Component {
                                 opacity={0.8}
 
                             >
-                                <View style={{
-                                    flex: 1,
-                                    justifyContent: 'center', alignItems: 'center',
-                                    margin: 5, padding: 10, elevation: 7,
-
-                                }}>
-
+                                <View style={style.imageContainer}>
                                 </View>
                             </ImageBackground>
                         </View>
@@ -197,6 +186,12 @@ const styles = StyleSheet.create(
         cardText: {
             fontSize: 20,
             fontWeight: 'bold'
+        },
+        imageContainer: {
+            flex: 1,
+            justifyContent: 'center', alignItems: 'center',
+            margin: 5, padding: 10, elevation: 7,
+
         }
 
 

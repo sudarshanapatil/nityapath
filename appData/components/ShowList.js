@@ -9,37 +9,22 @@ const backAction = NavigationActions.back({
 });
 
 const { width, height } = Dimensions.get('window');
-const styles = StyleSheet.create({
-    card: {
-        width: width - 10, height: 80,
-        padding: 8,
-        alignContent: 'center', justifyContent: 'center',
-        backgroundColor: 'white',
-        shadowRadius: 2, shadowColor: 'darkcyan',
-        elevation: 5,
-        shadowOffset: { width: 2, height: 5 }, shadowOpacity: 1,
-        margin: 5, borderRadius: 10
-    },
-    cardText: { fontSize: 16, textAlign: 'justify', textAlign: "center", fontFamily: "Laila-Medium" }
-});
-
-
 export default class ShowList extends Component {
     constructor(props) {
         super(props);
         const { navigation } = props;
         const listName = navigation.getParam('databaseList');
         const title = navigation.getParam('title');
-        const folderName=navigation.getParam('folderName');
+        const folderName = navigation.getParam('folderName');
         console.log("in constructor", listName, title)
         this.state =
-            { listData: [], title, listName,folderName }
+            { listData: [], title, listName, folderName }
 
     }
 
     fetchApi = (apiName) => {
-        
-        console.log("API URL", url,this.state.folderName)
+
+        console.log("API URL", url, this.state.folderName)
         let url = `https://sudarshanapatil.github.io/savedfiles/${this.state.folderName}/${apiName}.json`
         console.log("API URL", url)
         fetch(url)
@@ -66,8 +51,8 @@ export default class ShowList extends Component {
         const { navigation } = props;
         const listName = navigation.getParam('databaseList');
         const title = navigation.getParam('title')
-        const folderName=navigation.getParam('folderName');
-        this.setState({ listName, title,folderName })
+        const folderName = navigation.getParam('folderName');
+        this.setState({ listName, title, folderName })
         this.fetchApi(listName)
     }
     onTouchCard = (detailAbhang, pageNo) => {
@@ -80,36 +65,20 @@ export default class ShowList extends Component {
     }
     render() {
         return (
-            <View style={{
-                flex: 1,
-                width: width, height: height, backgroundColor: 'white'
-            }}>
-                <View style={{
-                    justifyContent: 'center', flexDirection: 'row',
-                    width: width, height: 50, backgroundColor: 'darkcyan'
-                }}>
-                    <View style={{
-                        width: 70, height: 50, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white'
-                    }}>
+            <View style={style.container}>
+                <View style={style.navbar}>
+                    <View style={style.backButton}>
                         <Icon name="heart" size={30} color="pink" onPress={() => this.goBack()} />
                     </View>
-                    <View style={{
-                        width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'
-                    }} >
-                        <Text style={{
-                            alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
-                            alignSelf: 'center', fontSize: 20, color: "white"
-                        }}>
+                    <View style={style.navTitle} >
+                        <Text style={style.textNavTitle}>
                             {this.state.title}
                         </Text>
 
                     </View>
                 </View>
                 <ScrollView>
-                    <View style={{
-                        width,
-                        backgroundColor: "white"
-                    }}>
+                    <View style={style.scrollView}>
                         {
                             this.state.listData.map((item, i) =>
                                 <TouchableOpacity key={i} onPress={() => this.onTouchCard(item.fullAbhang, (i + 1))}>
@@ -128,3 +97,38 @@ export default class ShowList extends Component {
         )
     }
 }
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        width: width, height: height, backgroundColor: 'white'
+    },
+    navbar: {
+        justifyContent: 'center', flexDirection: 'row',
+        width: width, height: 50, backgroundColor: 'darkcyan'
+    },
+    backButton: {
+        width: 50, height: 50, alignItems: 'center', justifyContent: 'center'
+    },
+    navTitle: {
+        width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'
+    },
+    textNavTitle: {
+        alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
+        alignSelf: 'center', fontSize: 20, color: "white"
+    },
+    scrollView: {
+        width,
+        backgroundColor: "white"
+    },
+    card: {
+        width: width - 10, height: 80,
+        padding: 8,
+        alignContent: 'center', justifyContent: 'center',
+        backgroundColor: 'white',
+        shadowRadius: 2, shadowColor: 'darkcyan',
+        elevation: 5,
+        shadowOffset: { width: 2, height: 5 }, shadowOpacity: 1,
+        margin: 5, borderRadius: 10
+    },
+    cardText: { fontSize: 16, textAlign: 'justify', textAlign: "center", fontFamily: "Laila-Medium" }
+});
