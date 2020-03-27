@@ -22,10 +22,9 @@ export default class ShowList extends Component {
 
     }
 
-    fetchApi = (apiName) => {
-
-        console.log("API URL", url, this.state.folderName)
-        let url = `https://sudarshanapatil.github.io/savedfiles/${this.state.folderName}/${apiName}.json`
+    fetchApi = (fileName,folderName) => {
+        
+        let url = `https://sudarshanapatil.github.io/savedfiles/${folderName}/${fileName}.json`
         console.log("API URL", url)
         fetch(url)
             .then(res => res.json())
@@ -44,16 +43,14 @@ export default class ShowList extends Component {
         let listName = this.state.listName;
         this.fetchApi(listName)
     }
-
-
-    UNSAFE_componentWillReceiveProps(props) {
-        console.log("in will props")
+    UNSAFE_componentWillReceiveProps(props) {       
         const { navigation } = props;
         const listName = navigation.getParam('databaseList');
         const title = navigation.getParam('title')
-        const folderName = navigation.getParam('folderName');
+        const folderName = navigation.getParam('folderName');        
         this.setState({ listName, title, folderName })
-        this.fetchApi(listName)
+        console.log("in will props",folderName,"Folder",listName)
+        this.fetchApi(listName,folderName)
     }
     onTouchCard = (detailAbhang, pageNo) => {
         this.props.navigation.navigate("FullAbhang", { fullAbhang: detailAbhang, pageNo, abhangList: this.state.listData })
