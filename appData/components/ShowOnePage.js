@@ -5,13 +5,8 @@ import {
     ImageBackground, AppRegistry, ToastAndroid, TouchableOpacity
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
-//import abhangList from '../database/naat'
 
 const { width, height } = Dimensions.get('window');
-
-// import TrackPlayer from 'react-native-track-player';
-//import console = require('console');
-//AppRegistry.registerComponent('appname', () => App);
 const backAction = NavigationActions.back({
     screen: 'Abhang',
 });
@@ -21,23 +16,25 @@ export default class FullAbhang extends Component {
         const { navigation } = props;
         const name = navigation.getParam('name', 'tp data');
         const title = navigation.getParam('title', 'पाण्डुरङ्गाष्टकं');
+        const folderName=navigation.getParam('folderName', 'पाण्डुरङ्गाष्टकं');
         this.state = {
             title,
             initialFontSize: 14,
             data: '',
-            name
+            name,
+            folderName
         }
 
     }
-    fetchApi = (apiName, folderName) => {
+    fetchApi = (fileName, folderName) => {
 
         console.log("API URL", url, this.state.folderName)
-        let url = `https://sudarshanapatil.github.io/savedfiles/${folderName}/${apiName}.json`
+        let url = `https://sudarshanapatil.github.io/savedfiles/${folderName}/${fileName}.json`
         console.log("API URL", url)
         fetch(url)
             .then(res => res.json())
             .then((response) => {
-                // console.log(response.data, "API data")
+                 console.log(response, "API data")
                 this.setState({
                     loading: false,
                     data: response.data
@@ -47,15 +44,18 @@ export default class FullAbhang extends Component {
     }
 
     componentDidMount(apiName) {
-        this.fetchApi(this.state.name, 'stotra')
+        this.fetchApi(this.state.name, this.state.folderName)
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
         const { navigation } = nextProps;
         const name = navigation.getParam('name', '');
+        const title = navigation.getParam('title', 'पाण्डुरङ्गाष्टकं');
+        const folderName=navigation.getParam('folderName', 'पाण्डुरङ्गाष्टकं');
         this.setState({
-            name
+            name,title,folderName
         })
+        this.fetchApi(name,folderName)
     }
 
     renderPage = () => {

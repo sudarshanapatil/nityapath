@@ -23,6 +23,9 @@ import KakdaList from './appData/components/KakdaList'
 import StotraList from './appData/components/StotraList'
 import ShowOnePage from './appData/components/ShowOnePage'
 import Naamjap from './appData/components/Naamjap'
+import GeetaAdhyayList from './appData/components/GeetaAdhyayList'
+import AaratiList from './appData/components/AaratiList'
+
 
 const DRAWER_WIDTH = Dimensions.get('window').width * 0.83;
 
@@ -61,6 +64,12 @@ const RouteConfigs =
   },
   Naamjap:{
     screen:Naamjap
+  },
+  GeetaAdhyayList:{
+    screen:GeetaAdhyayList
+  },
+  AaratiList:{
+    screen:AaratiList
   }
 };
 

@@ -1,63 +1,61 @@
 import React, { Component } from 'react';
-
 import {
     ScrollView, StyleSheet, Text, View, Image,
     Dimensions, TouchableOpacity, ImageBackground
 } from 'react-native';
 const { width, height } = Dimensions.get('window');
-import { createStackNavigator, createAppContainer } from "react-navigation";
-import Kakda1 from '../database/kakda1'
-import MauliHaripath from '../database/mauliHaripath'
+
 const data = [
     {
         id: 1,
-        name: "पाण्डुरङ्गाष्टकं",
-        imagePath: require('../images/tp.jpg')
+        name: "ज्ञानदेव आरती",
+        imagePath: require('../images/mauli.jpeg')
     },
     {
         id: 2,
-        name: "श्री रामरक्षास्तोत्रम्",
-        imagePath: require('../images/tp.jpg')
+        name: "नाथ आरती",
+        imagePath: require('../images/nath.jpeg')
     },
     {
         id: 3,
-        name: "गीता",
-        imagePath: require('../images/tp.jpg')
-    },
-    {
-        id: 3,
-        name: "शिवलीला",
-        imagePath: require('../images/tp.jpg')
+        name: "तुकाराम महाराज आरती",
+        imagePath: require('../images/nivruttiNath.jpeg')
     },
     {
         id: 4,
-        name: "विष्णुसहत्र",
-        imagePath: require('../images/tp.jpg')
+        name: "नामदेव महाराज आरती",
+        imagePath: require('../images/namdev.jpeg')
+    },
+    {
+        id: 5,
+        name: "",
+        imagePath: require('../images/tukaramMhrj.jpeg')
     },
 
 ]
-export default class StotraList extends Component {
+export default class HaripathList extends Component {
     constructor() {
         super()
-
     }
+
     onTouchCard = (id) => {
         switch (id) {
             case 1:
-                this.props.navigation.navigate("ShowOnePage", { name: 'pandurangashtakam', title: 'पाण्डुरङ्गाष्टकं',folderName:'stotra' })
+                this.props.navigation.navigate("ShowList", { folderName:'haripath',databaseList: "mauliHaripath", title: 'ज्ञानदेव हरिपाठ' })
                 break;
             case 2:
-                this.props.navigation.navigate("ShowOnePage", { name: 'ramraksha', title: 'श्री रामरक्षास्तोत्रम्' ,folderName:'stotra'})
+                this.props.navigation.navigate("ShowList", { folderName:'haripath',databaseList: 'nathHaripath', title: 'नाथ हरिपाठ' })
                 break;
             case 3:
-                this.props.navigation.navigate("GeetaAdhyayList")
+                this.props.navigation.navigate("ShowList", { folderName:'haripath',databaseList: MauliHaripath })
                 break;
             case 4:
-                this.props.navigation.navigate("ShowList", { databaseList: MauliHaripath })
+                this.props.navigation.navigate("ShowList", { folderName:'haripath',databaseList: MauliHaripath })
                 break;
         }
     }
     render() {
+
         return (
             <View>
                 <View style={styles.viewStyle}>
@@ -74,9 +72,16 @@ export default class StotraList extends Component {
                                         <TouchableOpacity key={item.key} onPress={() => this.onTouchCard(item.id)
                                         }>
                                             <View style={styles.card}>
-                                                <View style={styles.imageText}>
-                                                    <Text style={styles.cardText}>{item.name}</Text>
-                                                </View>
+                                                <ImageBackground
+                                                    style={styles.backImage}
+                                                    source={item.imagePath}
+                                                    opacity={0.5}
+                                                    imageStyle={{ borderRadius: 6 }}
+                                                    resizeMode={'stretch'}>
+                                                    <View style={styles.imageText}>
+                                                        <Text style={styles.cardText}>{item.name}</Text>
+                                                    </View>
+                                                </ImageBackground>
                                             </View>
                                         </TouchableOpacity>
                                     )
@@ -114,9 +119,9 @@ const styles = StyleSheet.create(
         },
         card: {
             width: width / 2 - 10,
-            height: height / 6 - 40,
+            height: height / 3 - 40,
             margin: 5,
-            backgroundColor: 'lightblue',
+            backgroundColor: 'white',
             elevation: 10,
             alignItems: 'center',
             justifyContent: 'center',

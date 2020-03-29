@@ -1,70 +1,41 @@
 import React, { Component } from 'react';
-
 import {
     ScrollView, StyleSheet, Text, View, Image,
     Dimensions, TouchableOpacity, ImageBackground
 } from 'react-native';
 const { width, height } = Dimensions.get('window');
-import { createStackNavigator, createAppContainer } from "react-navigation";
-import Kakda1 from '../database/kakda1'
-import MauliHaripath from '../database/mauliHaripath'
-const data = [
-    {
-        id: 1,
-        name: "पाण्डुरङ्गाष्टकं",
-        imagePath: require('../images/tp.jpg')
-    },
-    {
-        id: 2,
-        name: "श्री रामरक्षास्तोत्रम्",
-        imagePath: require('../images/tp.jpg')
-    },
-    {
-        id: 3,
-        name: "गीता",
-        imagePath: require('../images/tp.jpg')
-    },
-    {
-        id: 3,
-        name: "शिवलीला",
-        imagePath: require('../images/tp.jpg')
-    },
-    {
-        id: 4,
-        name: "विष्णुसहत्र",
-        imagePath: require('../images/tp.jpg')
-    },
 
-]
-export default class StotraList extends Component {
+let numbers = ["१", "२", "३", "४", "५", "६", '७', "८", "९", "१०", "११", "१२", "१३", "१४", "१५", "१६", '१७', "१८"]
+
+let data = numbers.map((key, index) => {
+    return {
+        id: index,
+        name: `अध्याय - ${key}`,
+        imagePath: require('../images/tp.jpg')
+    }
+})
+
+export default class GeetaAdhyayList extends Component {
     constructor() {
         super()
-
     }
+
     onTouchCard = (id) => {
-        switch (id) {
-            case 1:
-                this.props.navigation.navigate("ShowOnePage", { name: 'pandurangashtakam', title: 'पाण्डुरङ्गाष्टकं',folderName:'stotra' })
-                break;
-            case 2:
-                this.props.navigation.navigate("ShowOnePage", { name: 'ramraksha', title: 'श्री रामरक्षास्तोत्रम्' ,folderName:'stotra'})
-                break;
-            case 3:
-                this.props.navigation.navigate("GeetaAdhyayList")
-                break;
-            case 4:
-                this.props.navigation.navigate("ShowList", { databaseList: MauliHaripath })
-                break;
-        }
+        this.props.navigation.navigate("ShowOnePage", {
+            name: `adhyay${id}`,
+            title: `अध्याय ${id}`,
+            folderName: 'geeta'
+        })
     }
     render() {
+
         return (
             <View>
                 <View style={styles.viewStyle}>
                     <View style={styles.navbar}>
                         <Text style={styles.title}>
-                            भजनी मालिका
-                                </Text>
+                            गीता
+                        </Text>
                     </View>
                     <View style={styles.screenView}>
                         <ScrollView>
@@ -137,7 +108,5 @@ const styles = StyleSheet.create(
             fontSize: 20,
             fontWeight: 'bold'
         }
-
-
     }
 )
