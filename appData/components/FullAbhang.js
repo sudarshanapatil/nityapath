@@ -80,7 +80,13 @@ export default class FullAbhang extends Component {
     renderPage = () => {
         let { pageNo } = this.state;
         return (
-            <Animated.View
+            <ScrollView>
+                <View style={{
+                    flex: 1, width: width - 16, alignItems: 'center',
+                    justifyContent: 'center', backgroundColor: '#ffffff', margin: 8,
+                    padding: 16, elevation: 10
+                }}>
+                    {/* <Animated.View
                 style={[{
                     flex: 1, width: width - 16, height: height - 16, backgroundColor: '#ffffff',
                     margin: 8, padding: 10, alignItems: 'center', justifyContent: 'center', elevation: 5
@@ -90,24 +96,26 @@ export default class FullAbhang extends Component {
                             translateX: this.state.x
                         }
                     ]
-                }]}
-            >
-                {/* <ImageBackground
+                }]} */}
+                    {/* > */}
+                    {/* <ImageBackground
                     style={{ flex: 1, width, height: height + 50 }}
                     source={require('../../images/specialPhotos/splash.jpg')}
                     opacity={0.2}
                     resizeMode={'stretch'}
                 > */}
-                {/* <Text style={{ fontFamily: 'Sahitya-Bold', fontSize: 18 }}>{`\n${pageNo}`}</Text> */}
-                <Text style={{
+                    {/* <Text style={{ fontFamily: 'Sahitya-Bold', fontSize: 18 }}>{`\n${pageNo}`}</Text> */}
+                    <Text style={{
 
-                    fontSize: this.state.initialFontSize, color: '#000000',
-                    fontFamily: 'Laila-Medium',
-                }}>
-                    {this.state.abhangList[pageNo - 1].fullAbhang}
-                </Text>
-                {/* </ImageBackground> */}
-            </Animated.View>
+                        fontSize: this.state.initialFontSize, color: '#000000',
+                        fontFamily: 'Laila-Medium',
+                    }}>
+                        {this.state.abhangList[pageNo - 1].fullAbhang}
+                    </Text>
+                    {/* </ImageBackground> */}
+                    {/* </Animated.View> */}
+                </View>
+            </ScrollView>
         )
     }
     increaseFont = (type) => {
@@ -175,11 +183,26 @@ export default class FullAbhang extends Component {
 
                 </View>
                 {
-                    this.renderPage()
+                    // this.renderPage()
                 }
+                <ScrollView>
+                    <View style={{
+                        flex: 1, width: width - 16, alignItems: 'center',
+                        justifyContent: 'center', backgroundColor: 'yellow', margin: 8,
+                        padding: 16, elevation: 10
+                    }}>
+                        <Text style={{
+                            fontSize: this.state.initialFontSize, color: '#000000',
+                            fontFamily: 'Laila-Medium',
+                        }}>
+                            {this.state.abhangList[10 - 1].fullAbhang}
+                        </Text>
+                    </View>
+                </ScrollView>
                 <View style={{
-                    width, height: 50, position: 'absolute', alignItems: 'center',
-                    bottom: 0, left: 0, flexDirection: "row", backgroundColor: '#e9fcf6', elevation: 5
+                    flex:1,width, height: 50, position: 'absolute', alignItems: 'center',
+                    bottom: 0, left: 0, flexDirection: "row", 
+                    backgroundColor: '#e9fcf6', elevation: 15
                 }}>
                     <View style={style.fontView}>
                         <TouchableOpacity onPress={() => this.setPage("prev", listPageNo)}>
@@ -232,7 +255,5 @@ let style = StyleSheet.create({
     navbar: {
         width, height: 50, backgroundColor: "darkcyan"
     },
-    container:{
-        flex: 1, width, height
-    }
+    container: { flex: 1, width, height: height - 100, backgroundColor: 'blue' }
 })
