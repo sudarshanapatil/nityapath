@@ -80,7 +80,7 @@ export default class Home extends Component {
                 this.props.navigation.navigate("StotraList")
                 break;
             case 6:
-                this.props.navigation.navigate("StotraList")
+                this.props.navigation.navigate("AaratiList")
                 break;
             case 7:
                 this.props.navigation.navigate("Naamjap", { title: "Naamjap" })
