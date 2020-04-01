@@ -9,7 +9,7 @@ let numbers = ["१", "२", "३", "४", "५", "६", '७', "८", "९", "�
 
 let data = numbers.map((key, index) => {
     return {
-        id: index,
+        id: index+1,
         name: `अध्याय - ${key}`,
         imagePath: require('../images/tp.jpg')
     }

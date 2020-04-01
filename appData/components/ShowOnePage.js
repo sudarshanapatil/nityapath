@@ -16,10 +16,10 @@ export default class FullAbhang extends Component {
         const { navigation } = props;
         const name = navigation.getParam('name', 'tp data');
         const title = navigation.getParam('title', 'पाण्डुरङ्गाष्टकं');
-        const folderName=navigation.getParam('folderName', 'पाण्डुरङ्गाष्टकं');
+        const folderName = navigation.getParam('folderName', 'पाण्डुरङ्गाष्टकं');
         this.state = {
             title,
-            initialFontSize: 14,
+            initialFontSize: 16,
             data: '',
             name,
             folderName
@@ -34,7 +34,7 @@ export default class FullAbhang extends Component {
         fetch(url)
             .then(res => res.json())
             .then((response) => {
-                 console.log(response, "API data")
+                console.log(response, "API data")
                 this.setState({
                     loading: false,
                     data: response.data
@@ -51,28 +51,31 @@ export default class FullAbhang extends Component {
         const { navigation } = nextProps;
         const name = navigation.getParam('name', '');
         const title = navigation.getParam('title', 'पाण्डुरङ्गाष्टकं');
-        const folderName=navigation.getParam('folderName', 'पाण्डुरङ्गाष्टकं');
+        const folderName = navigation.getParam('folderName', 'पाण्डुरङ्गाष्टकं');
         this.setState({
-            name,title,folderName
+            name, title, folderName
         })
-        this.fetchApi(name,folderName)
+        this.fetchApi(name, folderName)
     }
 
     renderPage = () => {
         return (
-            <View style={{
-                flex: 1, width: width - 16, height: height - 16, backgroundColor: '#ffffff',
-                margin: 8, padding: 10, alignItems: 'center', justifyContent: 'center', elevation: 5
-            }}>
-
-                < Text style={{
-
-                    fontSize: this.state.initialFontSize, color: '#000000',
-                    fontFamily: 'Laila-Medium',
+            <ScrollView>
+                <View style={{
+                    flex: 1, width: width - 16,  backgroundColor: '#ffffff',
+                    margin: 8, padding: 10, alignItems: 'center',
+                    justifyContent: 'center', elevation: 10
                 }}>
-                    {this.state.data}
-                </Text>
-            </View >
+
+                    < Text style={{
+                        fontSize: this.state.initialFontSize, color: '#000000',
+                        fontFamily: 'Laila-Medium',
+                    }}>
+                        {this.state.data}
+                    </Text>
+                </View >
+            </ScrollView>
+
         )
     }
     increaseFont = (type) => {
@@ -130,9 +133,23 @@ export default class FullAbhang extends Component {
 
                     </View>
                 </View>
-                {
+                <ScrollView>
+                    <View style={{
+                        flex: 1, width: width - 16, alignItems: 'center',
+                        justifyContent: 'center', backgroundColor: '#ffffff', margin: 8,
+                        padding: 16, elevation: 10,marginBottom:60
+                    }}>
+                        <Text style={{
+                            fontSize: this.state.initialFontSize, color: '#000000',
+                            fontFamily: 'Laila-Medium',
+                        }}>
+                            {this.state.data}
+                        </Text>
+                    </View>
+                </ScrollView>
+                {/* {
                     this.renderPage()
-                }
+                } */}
                 <View style={style.contentView}>
                     <View style={style.fontView}>
                         <TouchableOpacity onPress={() => this.increaseFont("minus")}>

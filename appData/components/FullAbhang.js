@@ -86,34 +86,25 @@ export default class FullAbhang extends Component {
                     justifyContent: 'center', backgroundColor: '#ffffff', margin: 8,
                     padding: 16, elevation: 10
                 }}>
-                    {/* <Animated.View
-                style={[{
-                    flex: 1, width: width - 16, height: height - 16, backgroundColor: '#ffffff',
-                    margin: 8, padding: 10, alignItems: 'center', justifyContent: 'center', elevation: 5
-                }, {
-                    transform: [
-                        {
-                            translateX: this.state.x
-                        }
-                    ]
-                }]} */}
-                    {/* > */}
-                    {/* <ImageBackground
-                    style={{ flex: 1, width, height: height + 50 }}
-                    source={require('../../images/specialPhotos/splash.jpg')}
-                    opacity={0.2}
-                    resizeMode={'stretch'}
-                > */}
-                    {/* <Text style={{ fontFamily: 'Sahitya-Bold', fontSize: 18 }}>{`\n${pageNo}`}</Text> */}
-                    <Text style={{
-
-                        fontSize: this.state.initialFontSize, color: '#000000',
-                        fontFamily: 'Laila-Medium',
-                    }}>
-                        {this.state.abhangList[pageNo - 1].fullAbhang}
-                    </Text>
-                    {/* </ImageBackground> */}
-                    {/* </Animated.View> */}
+                    <Animated.View
+                        style={[{
+                            flex: 1, width: width - 16, height: height - 16, backgroundColor: '#ffffff',
+                            margin: 8, padding: 10, alignItems: 'center', justifyContent: 'center', elevation: 5
+                        }, {
+                            transform: [
+                                {
+                                    translateX: this.state.x
+                                }
+                            ]
+                        }]}
+                    >
+                        <Text style={{
+                            fontSize: this.state.initialFontSize, color: '#000000',
+                            fontFamily: 'Laila-Medium',
+                        }}>
+                            {this.state.abhangList[pageNo - 1].fullAbhang}
+                        </Text>
+                    </Animated.View>
                 </View>
             </ScrollView>
         )
@@ -183,9 +174,9 @@ export default class FullAbhang extends Component {
 
                 </View>
                 {
-                    // this.renderPage()
+                    this.renderPage()
                 }
-                <ScrollView>
+                {/* <ScrollView>
                     <View style={{
                         flex: 1, width: width - 16, alignItems: 'center',
                         justifyContent: 'center', backgroundColor: 'yellow', margin: 8,
@@ -198,10 +189,10 @@ export default class FullAbhang extends Component {
                             {this.state.abhangList[10 - 1].fullAbhang}
                         </Text>
                     </View>
-                </ScrollView>
+                </ScrollView> */}
                 <View style={{
-                    flex:1,width, height: 50, position: 'absolute', alignItems: 'center',
-                    bottom: 0, left: 0, flexDirection: "row", 
+                    flex: 1, width, height: 50, position: 'absolute', alignItems: 'center',
+                    bottom: 0, left: 0, flexDirection: "row",
                     backgroundColor: '#e9fcf6', elevation: 15
                 }}>
                     <View style={style.fontView}>
