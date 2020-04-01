@@ -28,12 +28,12 @@ const data = [
     },
     {
         id: 5,
-        name: "",
+        name: "नामदेव महाराज आरती",
         imagePath: require('../images/tukaramMhrj.jpeg')
     },
 
 ]
-export default class HaripathList extends Component {
+export default class AaratiList extends Component {
     constructor() {
         super()
     }

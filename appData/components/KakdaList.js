@@ -73,10 +73,10 @@ export default class HaripathList extends Component {
     onTouchCard = (id) => {
         switch (id) {
             case 1:
-                this.props.navigation.navigate("ShowList",  { folderName:'haripath',databaseList: "mauliHaripath", title: 'ज्ञानदेव हरिपाठ' })
+                this.props.navigation.navigate("ShowList",  { folderName:'kakada',databaseList: "mangalacharan1", title: 'मंगलाचरण पहिले' })
                 break;
             case 2:
-                this.props.navigation.navigate("ShowList", { databaseList: NathHaripath })
+                this.props.navigation.navigate("ShowList", { folderName:'kakada',databaseList: "mangalacharan2", title: 'मंगलाचरण पहिले'  })
                 break;
             case 3:
                 this.props.navigation.navigate("ShowList", { databaseList: MauliHaripath })

@@ -65,7 +65,7 @@ export default class ShowList extends Component {
             <View style={style.container}>
                 <View style={style.navbar}>
                     <View style={style.backButton}>
-                        <Icon name="heart" size={30} color="pink" onPress={() => this.goBack()} />
+                        <Icon name="arrow-left" size={30} color="white" onPress={() => this.goBack()} />
                     </View>
                     <View style={style.navTitle} >
                         <Text style={style.textNavTitle}>

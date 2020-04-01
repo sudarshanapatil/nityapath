@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 //import abhangList from '../database/naat'
-
+// import Icon from 'react-native-vector-icons/Ionicons';
 const { width, height } = Dimensions.get('window');
 
 // import TrackPlayer from 'react-native-track-player';
@@ -23,7 +23,7 @@ export default class FullAbhang extends Component {
         const abhangList = navigation.getParam('abhangList', 1);
         this.state = {
             isList: 1,
-            initialFontSize: 16,
+            initialFontSize: 18,
             visible: false,
             x: new Animated.Value(0),
             pageNo: newPageNo,
@@ -84,9 +84,9 @@ export default class FullAbhang extends Component {
                 <View style={{
                     flex: 1, width: width - 16, alignItems: 'center',
                     justifyContent: 'center', backgroundColor: '#ffffff', margin: 8,
-                    padding: 16, elevation: 10
+                    padding: 16, elevation: 10,marginBottom:100
                 }}>
-                    <Animated.View
+                    {/* <Animated.View
                         style={[{
                             flex: 1, width: width - 16, height: height - 16, backgroundColor: '#ffffff',
                             margin: 8, padding: 10, alignItems: 'center', justifyContent: 'center', elevation: 5
@@ -97,14 +97,14 @@ export default class FullAbhang extends Component {
                                 }
                             ]
                         }]}
-                    >
+                    > */}
                         <Text style={{
                             fontSize: this.state.initialFontSize, color: '#000000',
                             fontFamily: 'Laila-Medium',
                         }}>
                             {this.state.abhangList[pageNo - 1].fullAbhang}
                         </Text>
-                    </Animated.View>
+                    {/* </Animated.View> */}
                 </View>
             </ScrollView>
         )
@@ -156,6 +156,7 @@ export default class FullAbhang extends Component {
                 <View style={style.navbar}>
                     <View style={{ flexDirection: 'row', alignContent: "flex-end", justifyContent: "flex-end" }}>
                         <View style={style.navButtons}>
+                        {/* <Icon name="ios-arrow-back" size={24} color="white" onPress={() => this.goBack()} /> */}
                             <Icon name="arrow-left" size={30} color="white" onPress={() => this.goBack()} />
                         </View>
                         {/* <View style={style.navButtons}>
@@ -246,5 +247,5 @@ let style = StyleSheet.create({
     navbar: {
         width, height: 50, backgroundColor: "darkcyan"
     },
-    container: { flex: 1, width, height: height - 100, backgroundColor: 'blue' }
+    container: { flex: 1, width, height: height - 100 }
 })
