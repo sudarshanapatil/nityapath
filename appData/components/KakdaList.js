@@ -5,89 +5,32 @@ import {
     Dimensions, TouchableOpacity, ImageBackground
 } from 'react-native';
 const { width, height } = Dimensions.get('window');
-import { createStackNavigator, createAppContainer } from "react-navigation";
-import Kakda1 from '../database/kakda1'
-import MauliHaripath from '../database/mauliHaripath'
-
-const data = [
-    {
-        id: 1,
-        name: "मंगलाचरण पहिले ",
+let titleList = [{ title: "मंगलाचरण पहिले ", fileName: 'mangalacharan1' },
+{ title: "मंगलाचरण दुसरे ", fileName: 'mangalacharan2' },
+{ title: "मंगलाचरण तिसरे ", fileName: 'mangalacharan1' },
+{ title: "काकडा आरती", fileName: 'mangalacharan1' }, { title: "भूपाळ्याचे अभंग ", fileName: 'mangalacharan1' },
+{ title: "मालिका ६ वी " }, { title: "मालिका ७ वी " },
+{ title: " वासुदेव  ", fileName: 'vasudev' }, { title: "आंधळे-पांगुळ ", fileName: 'mangalacharan1' },
+{ title: "गौळणी", fileName: 'gaulan' }]
+let data = titleList.map((data, id) => {
+    return {
+        id,
+        name: data.title,
+        fileName: data.fileName,
         imagePath: require('../images/tp.jpg')
-    },
-    {
-        id: 2,
-        name: "मंगलाचरण दुसरे ",
-        imagePath: require('../images/tp.jpg')
-    },
-    {
-        id: 3,
-        name: "मंगलाचरण तिसरे ",
-        imagePath: require('../images/tp.jpg')
-    },
-    {
-        id: 3,
-        name: "काकडा आरती  ",
-        imagePath: require('../images/tp.jpg')
-    },
-    {
-        id: 4,
-        name: "भूपाळ्याचे अभंग ",
-        imagePath: require('../images/tp.jpg')
-    },
-    {
-        id: 4,
-        name: "मालिका ६ वी  ",
-        imagePath: require('../images/tp.jpg')
-    },
-    {
-        id: 4,
-        name: "मालिका ७ वी ",
-        imagePath: require('../images/tp.jpg')
-    },
-    
-    {
-        id: 4,
-        name: " वासुदेव  ",
-        imagePath: require('../images/tp.jpg')
-    },
-    {
-        id: 4,
-        name: "आंधळे-पांगुळ  ",
-        imagePath: require('../images/tp.jpg')
-    },
-    {
-        id: 4,
-        name: "गौळणी",
-        imagePath: require('../images/tp.jpg')
-    },
-    
-
-]
+    }
+})
 export default class HaripathList extends Component {
     constructor() {
         super()
 
     }
+    onTouchCard = (data) => {
+        console.log(data, "id==")
+        this.props.navigation.navigate("ShowList", { folderName: 'kakada', databaseList: data.fileName, title: data.name })
 
-    onTouchCard = (id) => {
-        switch (id) {
-            case 1:
-                this.props.navigation.navigate("ShowList",  { folderName:'kakada',databaseList: "mangalacharan1", title: 'मंगलाचरण पहिले' })
-                break;
-            case 2:
-                this.props.navigation.navigate("ShowList", { folderName:'kakada',databaseList: "mangalacharan2", title: 'मंगलाचरण पहिले'  })
-                break;
-            case 3:
-                this.props.navigation.navigate("ShowList", { databaseList: MauliHaripath })
-                break;
-            case 4:
-                this.props.navigation.navigate("ShowList", { databaseList: MauliHaripath })
-                break;
-        }
     }
     render() {
-
         return (
             <View>
                 <View style={styles.viewStyle}>
@@ -101,7 +44,7 @@ export default class HaripathList extends Component {
                             <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', width }}>
                                 {
                                     data.map((item, i) =>
-                                        <TouchableOpacity key={item.key} onPress={() => this.onTouchCard(item.id)
+                                        <TouchableOpacity key={item.id} onPress={() => this.onTouchCard(item)
                                         }>
                                             <View style={styles.card}>
                                                 <View style={styles.imageText}>

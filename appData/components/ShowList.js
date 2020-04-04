@@ -41,7 +41,8 @@ export default class ShowList extends Component {
     componentDidMount() {
         console.log("in did mount")
         let listName = this.state.listName;
-        this.fetchApi(listName)
+        let folderName=this.state.folderName
+        this.fetchApi(listName,folderName)
     }
     UNSAFE_componentWillReceiveProps(props) {       
         const { navigation } = props;

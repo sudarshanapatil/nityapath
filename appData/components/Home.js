@@ -39,7 +39,7 @@ const data = [
     },
     {
         id: 7,
-        name: "Naamsmaran",
+        name: "नामजप",
         imagePath: require('../images/kakda.jpeg')
     }
 ]
