@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import {
     ScrollView, StyleSheet, Text, View, Image,
     Dimensions, TouchableOpacity, ImageBackground
@@ -8,9 +7,11 @@ const { width, height } = Dimensions.get('window');
 let titleList = [{ title: "मंगलाचरण पहिले ", fileName: 'mangalacharan1' },
 { title: "मंगलाचरण दुसरे ", fileName: 'mangalacharan2' },
 { title: "मंगलाचरण तिसरे ", fileName: 'mangalacharan1' },
-{ title: "काकडा आरती", fileName: 'mangalacharan1' }, { title: "भूपाळ्याचे अभंग ", fileName: 'mangalacharan1' },
+{ title: "काकडा आरती", fileName: 'mangalacharan1' },
+{ title: "भूपाळ्याचे अभंग ", fileName: 'mangalacharan1' },
 { title: "मालिका ६ वी " }, { title: "मालिका ७ वी " },
-{ title: " वासुदेव  ", fileName: 'vasudev' }, { title: "आंधळे-पांगुळ ", fileName: 'mangalacharan1' },
+{ title: " वासुदेव  ", fileName: 'vasudev' },
+{ title: "आंधळे-पांगुळ ", fileName: 'mangalacharan1' },
 { title: "गौळणी", fileName: 'gaulan' }]
 let data = titleList.map((data, id) => {
     return {

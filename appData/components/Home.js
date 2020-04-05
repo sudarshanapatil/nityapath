@@ -19,7 +19,7 @@ const data = [
     },
     {
         id: 3,
-        name: "तुकाराम महाराजांनी नित्यपाठासाठी स्वार्गाहून पाठविलेले अभंग",
+        name: "नित्यपाठ १२ अभंग ",
         imagePath: require('../images/niryaan.jpeg')
     },
     {
@@ -39,8 +39,13 @@ const data = [
     },
     {
         id: 7,
+        name: "निवडक  अभंग",
+        imagePath: require('../images/nivadakAbhang.jpeg')
+    },
+    {
+        id: 8,
         name: "नामजप",
-        imagePath: require('../images/kakda.jpeg')
+        imagePath: require('../images/namjap.jpeg')
     }
 ]
 export default class Home extends Component {

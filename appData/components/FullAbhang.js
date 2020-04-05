@@ -81,12 +81,18 @@ export default class FullAbhang extends Component {
         let { pageNo } = this.state;
         return (
             <ScrollView>
-                <View style={{
-                    flex: 1, width: width - 16, alignItems: 'center',
-                    justifyContent: 'center', backgroundColor: '#ffffff', margin: 8,
-                    padding: 16, elevation: 10,marginBottom:100
-                }}>
-                    {/* <Animated.View
+                <ImageBackground
+                    style={style.backImage}
+                    source={require('../images/yelloBack.jpeg')}
+                    opacity={0.9}
+                    imageStyle={{ borderRadius: 6 }}
+                    resizeMode={'stretch'}>
+                    <View style={{
+                        flex: 1, width: width - 16, alignItems: 'center',
+                        justifyContent: 'center',  margin: 8,
+                        padding: 16, elevation: 10, marginBottom: 100
+                    }}>
+                        {/* <Animated.View
                         style={[{
                             flex: 1, width: width - 16, height: height - 16, backgroundColor: '#ffffff',
                             margin: 8, padding: 10, alignItems: 'center', justifyContent: 'center', elevation: 5
@@ -99,13 +105,14 @@ export default class FullAbhang extends Component {
                         }]}
                     > */}
                         <Text style={{
-                            fontSize: this.state.initialFontSize, color: '#000000',
+                            fontSize: this.state.initialFontSize, color: 'black',
                             fontFamily: 'Laila-Medium',
                         }}>
                             {this.state.abhangList[pageNo - 1].fullAbhang}
                         </Text>
-                    {/* </Animated.View> */}
-                </View>
+                        {/* </Animated.View> */}
+                    </View>
+                </ImageBackground>
             </ScrollView>
         )
     }
@@ -156,7 +163,7 @@ export default class FullAbhang extends Component {
                 <View style={style.navbar}>
                     <View style={{ flexDirection: 'row', alignContent: "flex-end", justifyContent: "flex-end" }}>
                         <View style={style.navButtons}>
-                        {/* <Icon name="ios-arrow-back" size={24} color="white" onPress={() => this.goBack()} /> */}
+                            {/* <Icon name="ios-arrow-back" size={24} color="white" onPress={() => this.goBack()} /> */}
                             <Icon name="arrow-left" size={30} color="white" onPress={() => this.goBack()} />
                         </View>
                         {/* <View style={style.navButtons}>
@@ -245,7 +252,11 @@ let style = StyleSheet.create({
     },
     navButtons: { width: width / 3, height: 50, alignItems: 'center', justifyContent: 'center' },
     navbar: {
-        width, height: 50, backgroundColor: "darkcyan"
+        width, height: 50, backgroundColor: "orange"
     },
-    container: { flex: 1, width, height: height - 100 }
+    container: { flex: 1, width, height: height - 100 },
+    backImage: {
+        width,
+        height
+    },
 })
