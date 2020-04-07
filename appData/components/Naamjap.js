@@ -77,7 +77,7 @@ export default class Naamjap extends Component {
     goBack = () => {
         //TrackPlayer.stop()
         const { navigate } = this.props.navigation;
-        navigate('Abhang');
+        navigate('Home');
 
 
     }
@@ -115,25 +115,35 @@ export default class Naamjap extends Component {
                 <View style={{
                     flex: 1, height: height - 50, alignContent: 'center', alignItems: 'center', justifyContent: 'center'
                 }}>
-                    <View style={{ backgroundColor: 'white', width, height: 100, }}>
-                        <Text style={style.textStyle}>
-                            संपूर्ण नामजप   - {this.state.totalCount}
-                        </Text>
-                        <Text style={style.textStyle}>
-                            जपमाळ  - {this.state.maal}
-                        </Text>
-                        <Text style={style.textStyle}>
-                            जपसंख्या  - {this.state.count}
-                        </Text>
-                    </View>
-                    <TouchableOpacity key={8} onPress={() => this.onTouchCard(this.state.count)
-                    }>
-                        <View style={style.naapjapButton} >
-                            <Text style={style.navTextStyle}>
-                                राम कृष्ण हरि
-                        </Text>
+                    <ImageBackground
+                        style={style.backImage}
+                        source={require('../images/namjap.jpeg')}
+                        opacity={0.5}
+                        imageStyle={{ borderRadius: 6 }}
+                        resizeMode={'stretch'}>
+                        <View style={{ backgroundColor: 'white', width, height: 100, 
+                        alignItems:'center',
+                        justifyContent:'center'}}>
+                            <Text style={style.textStyle}>
+                                संपूर्ण नामजप   - {this.state.totalCount}
+                            </Text>
+                            <Text style={style.textStyle}>
+                                जपमाळ  - {this.state.maal}
+                            </Text>
+                            <Text style={style.textStyle}>
+                                जपसंख्या  - {this.state.count}
+                            </Text>
                         </View>
-                    </TouchableOpacity>
+                        <TouchableOpacity key={8} onPress={() => this.onTouchCard(this.state.count)
+                        }>
+                            <View style={style.naapjapButton} >
+                                <Text style={style.navTextStyle}>
+                                    राम कृष्ण हरि
+                        </Text>
+                            </View>
+                        </TouchableOpacity>
+
+                    </ImageBackground>
                 </View>
 
 
@@ -176,6 +186,9 @@ let style = StyleSheet.create({
     },
     navButtons: { width: width / 3, height: 50, alignItems: 'center', justifyContent: 'center' },
     naapjapButton: {
-        width: 100, height: 100, backgroundColor: 'pink', borderRadius: 50, alignContent: 'center', alignItems: 'center', justifyContent: 'center'
-    }
+        width: 100, height: 100, backgroundColor: 'orange', borderRadius: 50, alignContent: 'center', alignItems: 'center', justifyContent: 'center'
+    },
+    backImage: {
+        width,height:height-70
+    },
 })
