@@ -5,15 +5,14 @@ import {
     ScrollView, StyleSheet, Text, View, Image,
     Dimensions, TouchableOpacity, ImageBackground
 } from 'react-native';
-
 const { width, height } = Dimensions.get('window');
-let titleList = [{ title: "मंगलाचरण पहिले ", fileName: 'mangalacharan1' },
+let titleList = [
 { title: "कृष्ण जन्माचे अभंग ", fileName: 'mangalacharan2' },
 { title: "राम जन्माचे अभंग  ", fileName: 'mangalacharan1' },
 { title: "ताटीचे अभंग ", fileName: 'mangalacharan1' },
 { title: "माऊलींचे समाधीचे अभंग ", fileName: 'mangalacharan1' },
 { title: "पंढरीत प्रवेश करताना म्हणायचे अभंग " }, { title: "मालिका ७ वी " },
-{ title: " वाराचे अभंग   ", fileName: 'vasudev' },]
+{ title: " वाराचे अभंग  ", fileName: 'vasudev' }]
 let data = titleList.map((data, id) => {
     return {
         id,
@@ -22,12 +21,13 @@ let data = titleList.map((data, id) => {
         imagePath: require('../images/tp.jpg')
     }
 })
-export default class Other extends Component {
+export default class OtherAbhanga extends Component {
     constructor() {
         super()
 
     }
     onTouchCard = (data) => {
+        console.log(data, "id==")
         this.props.navigation.navigate("ShowList", { folderName: 'kakada', databaseList: data.fileName, title: data.name })
 
     }
@@ -46,7 +46,7 @@ export default class Other extends Component {
                     </View>
                     <View style={style.navTitle} >
                         <Text style={style.textNavTitle}>
-                            {'काकडा'}
+                            {'निवडक  अभंग'}
                         </Text>
 
                     </View>

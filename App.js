@@ -26,6 +26,7 @@ import ShowOnePage from './appData/components/ShowOnePage'
 import Naamjap from './appData/components/Naamjap'
 import GeetaAdhyayList from './appData/components/GeetaAdhyayList'
 import AaratiList from './appData/components/AaratiList'
+import OtherAbhanga from './appData/components/OtherAbhanga'
 
 
 const DRAWER_WIDTH = Dimensions.get('window').width * 0.83;
@@ -71,6 +72,9 @@ const RouteConfigs =
   },
   AaratiList:{
     screen:AaratiList
+  },
+  OtherAbhanga:{
+    screen:OtherAbhanga
   }
 };
 

@@ -54,12 +54,12 @@ export default class Home extends Component {
         this.state = {
             showSplash: 1
         }
-        
+
     }
     static navigationOptions = {
-		title: "Home",
-		drawerLabel: "Home",
-	};
+        title: "Home",
+        drawerLabel: "Home",
+    };
     componentDidMount() {
         setTimeout(() => {
             this.setState({
@@ -92,6 +92,9 @@ export default class Home extends Component {
             case 6:
                 this.props.navigation.navigate("AaratiList")
                 break;
+            case 7:
+                this.props.navigation.navigate("OtherAbhanga")
+                break;
             case 8:
                 this.props.navigation.navigate("Naamjap", { title: "Naamjap" })
                 break;
@@ -118,9 +121,9 @@ export default class Home extends Component {
                         :
                         <View style={style.viewStyle}>
                             <AppBar
-								navigation={navigation}
-								isEllipsisVisible={0}
-								backgroundColor={'#ff9900'}
+                                navigation={navigation}
+                                isEllipsisVisible={0}
+                                backgroundColor={'#ff9900'}
                             />
                             {/* <View style={style.navbar}>
                                 <Text style={style.title}>
@@ -175,7 +178,7 @@ const style = StyleSheet.create(
         title: {
             fontWeight: 'bold',
             fontSize: 22,
-            color:"white"
+            color: "white"
         },
         screenView: {
             width,
