@@ -102,7 +102,7 @@ const style = StyleSheet.create({
     },
     navbar: {
         justifyContent: 'center', flexDirection: 'row',
-        width: width, height: 50, backgroundColor: 'darkcyan'
+        width: width, height: 50, backgroundColor: 'orange'
     },
     backButton: {
         width: 50, height: 50, alignItems: 'center', justifyContent: 'center'
@@ -112,7 +112,7 @@ const style = StyleSheet.create({
     },
     textNavTitle: {
         alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
-        alignSelf: 'center', fontSize: 20, color: "white"
+        alignSelf: 'center', fontSize: 24, color: "white"
     },
     scrollView: {
         width,

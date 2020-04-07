@@ -103,7 +103,7 @@ export default class Naamjap extends Component {
             <View style={style.container}>
                 <View style={style.navbar}>
                     <View style={style.backButton}>
-                        <Icon name="heart" size={30} color="pink" onPress={() => this.goBack()} />
+                        <Icon name="arrow-left" size={30} color='white' onPress={() => this.goBack()} />
                     </View>
                     <View style={style.navTitle} >
                         <Text style={style.navTextStyle}>
@@ -146,10 +146,10 @@ let style = StyleSheet.create({
     },
     navbar: {
         justifyContent: 'center', flexDirection: 'row',
-        width: width, height: 50, backgroundColor: 'darkcyan'
+        width: width, height: 50, backgroundColor: 'orange'
     },
     backButton: {
-        width: 70, height: 50, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white'
+        width: 70, height: 50, alignItems: 'center', justifyContent: 'center',
     },
     navTitle: {
         width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'

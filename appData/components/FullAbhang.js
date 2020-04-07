@@ -23,7 +23,7 @@ export default class FullAbhang extends Component {
         const abhangList = navigation.getParam('abhangList', 1);
         this.state = {
             isList: 1,
-            initialFontSize: 18,
+            initialFontSize: 28,
             visible: false,
             x: new Animated.Value(0),
             pageNo: newPageNo,
@@ -83,7 +83,7 @@ export default class FullAbhang extends Component {
             <ScrollView>
                 <ImageBackground
                     style={style.backImage}
-                    source={require('../images/yelloBack.jpeg')}
+                    source={require('../images/fullpageBack.jpeg')}
                     opacity={0.9}
                     imageStyle={{ borderRadius: 6 }}
                     resizeMode={'stretch'}>
@@ -136,7 +136,7 @@ export default class FullAbhang extends Component {
     goBack = () => {
         //TrackPlayer.stop()
         const { navigate } = this.props.navigation;
-        navigate('Abhang');
+        navigate('ShowList');
 
 
     }
@@ -201,26 +201,26 @@ export default class FullAbhang extends Component {
                 <View style={{
                     flex: 1, width, height: 50, position: 'absolute', alignItems: 'center',
                     bottom: 0, left: 0, flexDirection: "row",
-                    backgroundColor: '#e9fcf6', elevation: 15
+                    backgroundColor: 'orange', elevation: 15
                 }}>
                     <View style={style.fontView}>
                         <TouchableOpacity onPress={() => this.setPage("prev", listPageNo)}>
                             <View style={style.fontButton}>
-                                <Text style={{ fontSize: 20, color: 'black' }}>मागे</Text>
+                                <Text style={style.bottomButtons}>मागे</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
                     <View style={style.fontView}>
                         <TouchableOpacity onPress={() => this.increaseFont("minus")}>
                             <View style={style.fontButton}>
-                                <Text style={{ fontSize: 22, color: 'black', fontWeight: '0' }}>अ</Text>
+                                <Text style={style.bottomButtons}>अ</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
                     <View style={style.fontView}>
                         <TouchableOpacity onPress={() => this.increaseFont("plus")}>
                             <View style={style.fontButton}>
-                                <Text style={{ fontSize: 32, color: 'black' }}>अ</Text>
+                                <Text style={style.bottomButtons}>अ</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -228,7 +228,7 @@ export default class FullAbhang extends Component {
                     <View style={style.fontView}>
                         <TouchableOpacity onPress={() => this.setPage("next", listPageNo)}>
                             <View style={style.fontButton}>
-                                <Text style={{ fontSize: 20, color: 'black' }}>पुढे</Text>
+                                <Text style={style.bottomButtons}>पुढे</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -259,4 +259,5 @@ let style = StyleSheet.create({
         width,
         height
     },
+    bottomButtons:{ fontSize: 22, color: 'white' }
 })

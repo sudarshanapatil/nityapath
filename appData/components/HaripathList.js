@@ -4,9 +4,7 @@ import {
     Dimensions, TouchableOpacity, ImageBackground
 } from 'react-native';
 const { width, height } = Dimensions.get('window');
-import { createStackNavigator, createAppContainer } from "react-navigation";
-import NathHaripath from '../database/nathHaripath'
-// import MauliHaripath from '../database/mauliHaripath'
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const data = [
     {
@@ -44,73 +42,88 @@ export default class HaripathList extends Component {
     onTouchCard = (id) => {
         switch (id) {
             case 1:
-                this.props.navigation.navigate("ShowList", { folderName:'haripath',databaseList: "mauliHaripath", title: 'ज्ञानदेव हरिपाठ' })
+                this.props.navigation.navigate("ShowList", { folderName: 'haripath', databaseList: "mauliHaripath", title: 'ज्ञानदेव हरिपाठ' })
                 break;
             case 2:
-                this.props.navigation.navigate("ShowList", { folderName:'haripath',databaseList: 'nathHaripath', title: 'नाथ हरिपाठ' })
+                this.props.navigation.navigate("ShowList", { folderName: 'haripath', databaseList: 'nathHaripath', title: 'नाथ हरिपाठ' })
                 break;
             case 3:
-                this.props.navigation.navigate("ShowList", { folderName:'haripath',databaseList: MauliHaripath })
+                this.props.navigation.navigate("ShowList", { folderName: 'haripath', databaseList: MauliHaripath })
                 break;
             case 4:
-                this.props.navigation.navigate("ShowList", { folderName:'haripath',databaseList: MauliHaripath })
+                this.props.navigation.navigate("ShowList", { folderName: 'haripath', databaseList: MauliHaripath })
                 break;
         }
+    }
+    goBack = () => {
+        const { navigate } = this.props.navigation;
+        navigate('Home');
+        // this.setState({ListName:"",title:""})
     }
     render() {
 
         return (
-            <View>
-                <View style={styles.viewStyle}>
-                    <View style={styles.navbar}>
-                        <Text style={styles.title}>
-                            भजनी मालिका
-                                </Text>
+            <View style={style.container}>
+                <View style={style.navbar}>
+                    <View style={style.backButton}>
+                        <Icon name="arrow-left" size={30} color="white" onPress={() => this.goBack()} />
                     </View>
-                    <View style={styles.screenView}>
-                        <ScrollView>
-                            <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', width }}>
-                                {
-                                    data.map((item, i) =>
-                                        <TouchableOpacity key={item.key} onPress={() => this.onTouchCard(item.id)
-                                        }>
-                                            <View style={styles.card}>
-                                                <ImageBackground
-                                                    style={styles.backImage}
-                                                    source={item.imagePath}
-                                                    opacity={0.5}
-                                                    imageStyle={{ borderRadius: 6 }}
-                                                    resizeMode={'stretch'}>
-                                                    <View style={styles.imageText}>
-                                                        <Text style={styles.cardText}>{item.name}</Text>
-                                                    </View>
-                                                </ImageBackground>
+                    <View style={style.navTitle} >
+                        <Text style={style.textNavTitle}>
+                            {'हरिपाठ'}
+                        </Text>
+
+                    </View>
+                </View>
+                <View style={style.screenView}>
+                    <ScrollView>
+                        <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', width }}>
+                            {
+                                data.map((item, i) =>
+                                    <TouchableOpacity key={item.key} onPress={() => this.onTouchCard(item.id)
+                                    }>
+                                        <View style={style.card}>
+                                            <ImageBackground
+                                                style={style.backImage}
+                                                source={item.imagePath}
+                                                opacity={0.5}
+                                                imageStyle={{ borderRadius: 6 }}
+                                                resizeMode={'stretch'}>
+                                            </ImageBackground>
+                                            <View style={style.imageText}>
+                                                <Text style={style.cardText}>{item.name}</Text>
                                             </View>
-                                        </TouchableOpacity>
-                                    )
-                                }
-                            </View>
-                        </ScrollView>
-                    </View>
+                                        </View>
+                                    </TouchableOpacity>
+                                )
+                            }
+                        </View>
+                    </ScrollView>
                 </View>
 
             </View>)
     }
 }
 
-const styles = StyleSheet.create(
+const style = StyleSheet.create(
     {
-        viewStyle: {
-            width,
-            height,
-            backgroundColor: `white`
+        container: {
+            flex: 1,
+            width: width, height: height, backgroundColor: 'white'
         },
         navbar: {
-            width,
-            height: 50,
-            backgroundColor: 'pink',
-            alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center', flexDirection: 'row',
+            width: width, height: 50, backgroundColor: 'orange'
+        },
+        backButton: {
+            width: 50, height: 50, alignItems: 'center', justifyContent: 'center'
+        },
+        navTitle: {
+            width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'
+        },
+        textNavTitle: {
+            alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
+            alignSelf: 'center', fontSize: 24, color: "white"
         },
         title: {
             fontWeight: 'bold',
@@ -126,23 +139,28 @@ const styles = StyleSheet.create(
             margin: 5,
             backgroundColor: 'white',
             elevation: 10,
-            alignItems: 'center',
-            justifyContent: 'center',
+            // alignItems: 'center',
+            // justifyContent: 'center',
             borderRadius: 10,
+            flexDirection: 'column'
 
         },
         backImage: {
             width: width / 2 - 10,
-            height: height / 3 - 40,
+            height: height / 3 - 50,
         },
         imageText: {
             width: width / 2 - 8,
-            height: height / 4 - 8,
-            alignItems: 'center',
-            justifyContent: 'center'
+            height: height / 3 - 200,
+            alignItems: 'stretch',
+            justifyContent: 'center',
+            flexDirection: "row",
+            backgroundColor: 'orange',
+            fontSize:18,
+            borderRadius:10
         },
         cardText: {
-            fontSize: 20,
+            fontSize: 16,
             fontWeight: 'bold'
         }
 

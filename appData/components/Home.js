@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 const { width, height } = Dimensions.get('window');
 import { createStackNavigator, createAppContainer } from "react-navigation";
-
+import AppBar from './AppBar'
 const data = [
     {
         id: 1,
@@ -54,7 +54,12 @@ export default class Home extends Component {
         this.state = {
             showSplash: 1
         }
+        
     }
+    static navigationOptions = {
+		title: "Home",
+		drawerLabel: "Home",
+	};
     componentDidMount() {
         setTimeout(() => {
             this.setState({
@@ -87,12 +92,13 @@ export default class Home extends Component {
             case 6:
                 this.props.navigation.navigate("AaratiList")
                 break;
-            case 7:
+            case 8:
                 this.props.navigation.navigate("Naamjap", { title: "Naamjap" })
                 break;
         }
     }
     render() {
+        const { navigation } = this.props;
         return (
             <View>
                 {
@@ -111,11 +117,16 @@ export default class Home extends Component {
                     </View>
                         :
                         <View style={style.viewStyle}>
-                            <View style={style.navbar}>
+                            <AppBar
+								navigation={navigation}
+								isEllipsisVisible={0}
+								backgroundColor={'#ff9900'}
+                            />
+                            {/* <View style={style.navbar}>
                                 <Text style={style.title}>
                                     भजनी मालिका
                                 </Text>
-                            </View>
+                            </View> */}
                             <View style={style.screenView}>
                                 <ScrollView>
                                     <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', width }}>
@@ -157,13 +168,14 @@ const style = StyleSheet.create(
         navbar: {
             width,
             height: 50,
-            backgroundColor: 'pink',
+            backgroundColor: '#FF9933',
             alignItems: 'center',
             justifyContent: 'center'
         },
         title: {
             fontWeight: 'bold',
-            fontSize: 22
+            fontSize: 22,
+            color:"white"
         },
         screenView: {
             width,

@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
+import Icon from 'react-native-vector-icons/FontAwesome';
 const data = [
     {
         id: 1,
@@ -54,32 +55,42 @@ export default class AaratiList extends Component {
                 break;
         }
     }
+    goBack = () => {
+        //TrackPlayer.stop()
+        const { navigate } = this.props.navigation;
+        navigate('Home');
+    }
     render() {
 
         return (
-            <View>
-                <View style={styles.viewStyle}>
-                    <View style={styles.navbar}>
-                        <Text style={styles.title}>
-                            भजनी मालिका
-                                </Text>
+            <View style={style.container}>
+                <View style={style.navbar}>
+                    <View style={style.backButton}>
+                        <Icon name="arrow-left" size={30} color="white" onPress={() => this.goBack()} />
                     </View>
-                    <View style={styles.screenView}>
+                    <View style={style.navTitle} >
+                        <Text style={style.textNavTitle}>
+                            {'आरती संग्रह '}
+                        </Text>
+
+                    </View>
+                </View>
+                    <View style={style.screenView}>
                         <ScrollView>
                             <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', width }}>
                                 {
                                     data.map((item, i) =>
                                         <TouchableOpacity key={item.key} onPress={() => this.onTouchCard(item.id)
                                         }>
-                                            <View style={styles.card}>
+                                            <View style={style.card}>
                                                 <ImageBackground
-                                                    style={styles.backImage}
+                                                    style={style.backImage}
                                                     source={item.imagePath}
                                                     opacity={0.5}
                                                     imageStyle={{ borderRadius: 6 }}
                                                     resizeMode={'stretch'}>
-                                                    <View style={styles.imageText}>
-                                                        <Text style={styles.cardText}>{item.name}</Text>
+                                                    <View style={style.imageText}>
+                                                        <Text style={style.cardText}>{item.name}</Text>
                                                     </View>
                                                 </ImageBackground>
                                             </View>
@@ -89,25 +100,29 @@ export default class AaratiList extends Component {
                             </View>
                         </ScrollView>
                     </View>
-                </View>
-
             </View>)
     }
 }
 
-const styles = StyleSheet.create(
+const style = StyleSheet.create(
     {
-        viewStyle: {
-            width,
-            height,
-            backgroundColor: `white`
+        container: {
+            flex: 1,
+            width: width, height: height, backgroundColor: 'white'
         },
         navbar: {
-            width,
-            height: 50,
-            backgroundColor: 'pink',
-            alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center', flexDirection: 'row',
+            width: width, height: 50, backgroundColor: 'orange'
+        },
+        backButton: {
+            width: 50, height: 50, alignItems: 'center', justifyContent: 'center'
+        },
+        navTitle: {
+            width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'
+        },
+        textNavTitle: {
+            alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
+            alignSelf: 'center', fontSize: 24, color: "white"
         },
         title: {
             fontWeight: 'bold',

@@ -98,9 +98,7 @@ export default class FullAbhang extends Component {
     goBack = () => {
         //TrackPlayer.stop()
         const { navigate } = this.props.navigation;
-        navigate('Abhang');
-
-
+        navigate('Home');
     }
     onShare = async (data) => {
         try {
@@ -154,14 +152,14 @@ export default class FullAbhang extends Component {
                     <View style={style.fontView}>
                         <TouchableOpacity onPress={() => this.increaseFont("minus")}>
                             <View style={style.fontButton}>
-                                <Text style={{ fontSize: 22, color: 'black', fontWeight: '0' }}>अ</Text>
+                                <Text style={style.bottomButtons}>अ</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
                     <View style={style.fontView}>
                         <TouchableOpacity onPress={() => this.increaseFont("plus")}>
                             <View style={style.fontButton}>
-                                <Text style={{ fontSize: 32, color: 'black' }}>अ</Text>
+                                <Text style={style.bottomButtons}>अ</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -178,7 +176,7 @@ let style = StyleSheet.create({
     },
     navbar: {
         justifyContent: 'center', flexDirection: 'row',
-        width: width, height: 50, backgroundColor: 'darkcyan'
+        width: width, height: 50, backgroundColor: 'orange'
     },
     backButton: {
         width: 50, height: 50, alignItems: 'center', justifyContent: 'center'
@@ -192,7 +190,7 @@ let style = StyleSheet.create({
     },
     contentView: {
         width, height: 50, position: 'absolute', alignItems: 'center',
-        bottom: 0, left: 0, flexDirection: "row", backgroundColor: '#e9fcf6', elevation: 5
+        bottom: 0, left: 0, flexDirection: "row", backgroundColor: 'orange', elevation: 5
     },
     backgroundImage: {
         flex: 1,
@@ -204,7 +202,9 @@ let style = StyleSheet.create({
     },
     fontView: {
         width: width / 4, height: 50, justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',backgroundColor:'orange'
     },
-    navButtons: { width: width / 3, height: 50, alignItems: 'center', justifyContent: 'center' }
+    navButtons: { width: width / 3, height: 50, alignItems: 'center', justifyContent: 'center' },
+    bottomButtons:{ fontSize: 32, color: 'white' ,backgroundColor:'orange'}
 })
+

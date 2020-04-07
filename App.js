@@ -5,12 +5,13 @@ import {
   Dimensions
 } from 'react-native';
 import {
-
-  createAppContainer,
-
+	
+	createAppContainer,
+	// DrawerItems,
+	// SafeAreaView
 } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
-
+// import { createDrawerNavigator } from '@react-navigation/drawer'
 // import { createStackNavigator } from 'react-navigation-stack';
 import Home from './appData/components/Home'
 import Naat from './appData/components/Naat'
@@ -103,7 +104,7 @@ const DrawerNavigatorConfigs = {
     },
     labelStyle: {
       fontSize: 16,
-      fontFamily: 'NotoSans-Regular',
+      fontFamily: 'Laila-medium',
       fontWeight: 'normal'
     }
   },

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 import {
     ScrollView, StyleSheet, Text, View, Image,
     Dimensions, TouchableOpacity, ImageBackground
@@ -31,52 +33,74 @@ export default class HaripathList extends Component {
         this.props.navigation.navigate("ShowList", { folderName: 'kakada', databaseList: data.fileName, title: data.name })
 
     }
+    goBack = () => {
+        const { navigate } = this.props.navigation;
+        navigate('Home');
+        // this.setState({ListName:"",title:""})
+    }
     render() {
         return (
-            <View>
-                <View style={styles.viewStyle}>
-                    <View style={styles.navbar}>
-                        <Text style={styles.title}>
-                            भजनी मालिका
-                                </Text>
+            <View style={style.container} >
+                {/* <View style={style.viewStyle}> */}
+                <View style={style.navbar}>
+                    <View style={style.backButton}>
+                        <Icon name="arrow-left" size={30} color="white" onPress={() => this.goBack()} />
                     </View>
-                    <View style={styles.screenView}>
-                        <ScrollView>
-                            <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', width }}>
-                                {
-                                    data.map((item, i) =>
-                                        <TouchableOpacity key={item.id} onPress={() => this.onTouchCard(item)
-                                        }>
-                                            <View style={styles.card}>
-                                                <View style={styles.imageText}>
-                                                    <Text style={styles.cardText}>{item.name}</Text>
-                                                </View>
-                                            </View>
-                                        </TouchableOpacity>
-                                    )
-                                }
-                            </View>
-                        </ScrollView>
+                    <View style={style.navTitle} >
+                        <Text style={style.textNavTitle}>
+                            {'काकडा'}
+                        </Text>
+
                     </View>
                 </View>
+                <View style={style.screenView}>
+                    <ScrollView>
+                        <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', width }}>
+                            {
+                                data.map((item, i) =>
+                                    <TouchableOpacity key={item.id} onPress={() => this.onTouchCard(item)
+                                    }>
+                                        <View style={style.card}>
+                                            <View style={style.imageText}>
+                                                <Text style={style.cardText}>{item.name}</Text>
+                                            </View>
+                                        </View>
+                                    </TouchableOpacity>
+                                )
+                            }
+                        </View>
+                    </ScrollView>
+                </View>
+                {/* </View> */}
 
             </View>)
     }
 }
 
-const styles = StyleSheet.create(
+const style = StyleSheet.create(
+
     {
+        container: {
+            flex: 1, width, height
+        },
         viewStyle: {
             width,
             height,
             backgroundColor: `white`
         },
         navbar: {
-            width,
-            height: 50,
-            backgroundColor: 'pink',
-            alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center', flexDirection: 'row',
+            width: width, height: 50, backgroundColor: 'orange'
+        },
+        backButton: {
+            width: 50, height: 50, alignItems: 'center', justifyContent: 'center'
+        },
+        navTitle: {
+            width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'
+        },
+        textNavTitle: {
+            alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
+            alignSelf: 'center', fontSize: 24, color: "white"
         },
         title: {
             fontWeight: 'bold',
@@ -90,7 +114,7 @@ const styles = StyleSheet.create(
             width: width / 2 - 10,
             height: height / 6 - 40,
             margin: 5,
-            backgroundColor: 'lightblue',
+            backgroundColor: '#FFD480',
             elevation: 10,
             alignItems: 'center',
             justifyContent: 'center',
