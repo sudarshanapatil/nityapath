@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 // import { createStackNavigator, createAppContainer } from "react-navigation";
-import { Text, View, Dimensions, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+    Text, View, Dimensions, ScrollView, StyleSheet,
+    TouchableOpacity, TextInput
+} from 'react-native';
 //import NaatList from '../database/naat'
 import { NavigationActions } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -18,12 +21,12 @@ export default class ShowList extends Component {
         const folderName = navigation.getParam('folderName');
         console.log("in constructor", listName, title)
         this.state =
-            { listData: [], title, listName, folderName }
+            { listData: [], title, listName, folderName, showSearch: false }
 
     }
 
-    fetchApi = (fileName,folderName) => {
-        
+    fetchApi = (fileName, folderName) => {
+
         let url = `https://sudarshanapatil.github.io/savedfiles/${folderName}/${fileName}.json`
         console.log("API URL", url)
         fetch(url)
@@ -41,17 +44,17 @@ export default class ShowList extends Component {
     componentDidMount() {
         console.log("in did mount")
         let listName = this.state.listName;
-        let folderName=this.state.folderName
-        this.fetchApi(listName,folderName)
+        let folderName = this.state.folderName
+        this.fetchApi(listName, folderName)
     }
-    UNSAFE_componentWillReceiveProps(props) {       
+    UNSAFE_componentWillReceiveProps(props) {
         const { navigation } = props;
         const listName = navigation.getParam('databaseList');
         const title = navigation.getParam('title')
-        const folderName = navigation.getParam('folderName');        
+        const folderName = navigation.getParam('folderName');
         this.setState({ listName, title, folderName })
-        console.log("in will props",folderName,"Folder",listName)
-        this.fetchApi(listName,folderName)
+        console.log("in will props", folderName, "Folder", listName)
+        this.fetchApi(listName, folderName)
     }
     onTouchCard = (detailAbhang, pageNo) => {
         this.props.navigation.navigate("FullAbhang", { fullAbhang: detailAbhang, pageNo, abhangList: this.state.listData })
@@ -60,6 +63,12 @@ export default class ShowList extends Component {
         const { navigate } = this.props.navigation;
         navigate('Home');
         // this.setState({ListName:"",title:""})
+    }
+    search = (text) => {
+        let str='ते वापरून पाहण्‍यासाठी, खालील आपली भाषा आणि इनपुट साधन निवडा आणि टाइप करण्‍यास सुरूवात करा.'
+        let searchAns=str.search("hj");
+        console.log(text,"search",searchAns)
+        this.setState({ showSearch: true })
     }
     render() {
         return (
@@ -74,6 +83,17 @@ export default class ShowList extends Component {
                         </Text>
 
                     </View>
+                    <View style={style.backButton}>
+                        <Icon name="search" size={30} color="white" onPress={() => this.search()} />
+                    </View>
+                </View>
+                <View className='search'>
+                    <TextInput
+                    placeholder={'मराठी कीबोर्ड वापरा / Use marathi keyboard'}
+                        style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                        onChangeText={text => this.search(text)}
+                        // value={value}
+                    />
                 </View>
                 <ScrollView>
                     <View style={style.scrollView}>
@@ -108,7 +128,7 @@ const style = StyleSheet.create({
         width: 50, height: 50, alignItems: 'center', justifyContent: 'center'
     },
     navTitle: {
-        width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'
+        width: width - 50 - 50, height: 50, alignItems: 'center', justifyContent: 'center'
     },
     textNavTitle: {
         alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
