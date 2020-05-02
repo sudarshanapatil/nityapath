@@ -32,6 +32,14 @@
 		7F816AEB335846E1897D0C92 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9507CE27F4384ACD9DD67BF9 /* Octicons.ttf */; };
 		A48DDA9264C04FFCA9A85FDE /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 508D70ABA1B24488989EB939 /* SimpleLineIcons.ttf */; };
 		B39D9F45671C43E1A87EBD58 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35515CCC583948B58CD710D3 /* Zocial.ttf */; };
+		D193C2D7F23D4115863D690D /* Laila-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC0E47BE4DA1424F8ACAFDAF /* Laila-Bold.ttf */; };
+		40A835EB1F0A4CA287E3A64C /* Laila-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08F90C862B854A0083FC9DDA /* Laila-Light.ttf */; };
+		899B5E28092A42A8AC3A6C32 /* Laila-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D2A5E03ADA74F2E97E313C3 /* Laila-Medium.ttf */; };
+		BDED84824B4749559918B715 /* Laila-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F05D1D9FD464D1796EDF3E1 /* Laila-Regular.ttf */; };
+		CCC83E812DC549DABAEBA96B /* Laila-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9095DBE8989A4FE3B9AE3FEA /* Laila-SemiBold.ttf */; };
+		061C38C4DEBF4DDF94C36AEC /* Arya-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D03C31CDCDD47B6ADB50316 /* Arya-Bold.ttf */; };
+		01F78C5D0ECC4D0AAB537D30 /* Arya-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBC34C0543614943BFD4B417 /* Arya-Regular.ttf */; };
+		73F36B17C2E9457FBB414809 /* Modak-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF7ED31E33E2414099A278E4 /* Modak-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +91,14 @@
 		9507CE27F4384ACD9DD67BF9 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		508D70ABA1B24488989EB939 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		35515CCC583948B58CD710D3 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EC0E47BE4DA1424F8ACAFDAF /* Laila-Bold.ttf */ = {isa = PBXFileReference; name = "Laila-Bold.ttf"; path = "../assets/fonts/Laila-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		08F90C862B854A0083FC9DDA /* Laila-Light.ttf */ = {isa = PBXFileReference; name = "Laila-Light.ttf"; path = "../assets/fonts/Laila-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1D2A5E03ADA74F2E97E313C3 /* Laila-Medium.ttf */ = {isa = PBXFileReference; name = "Laila-Medium.ttf"; path = "../assets/fonts/Laila-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2F05D1D9FD464D1796EDF3E1 /* Laila-Regular.ttf */ = {isa = PBXFileReference; name = "Laila-Regular.ttf"; path = "../assets/fonts/Laila-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9095DBE8989A4FE3B9AE3FEA /* Laila-SemiBold.ttf */ = {isa = PBXFileReference; name = "Laila-SemiBold.ttf"; path = "../assets/fonts/Laila-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3D03C31CDCDD47B6ADB50316 /* Arya-Bold.ttf */ = {isa = PBXFileReference; name = "Arya-Bold.ttf"; path = "../assets/fonts/Arya-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CBC34C0543614943BFD4B417 /* Arya-Regular.ttf */ = {isa = PBXFileReference; name = "Arya-Regular.ttf"; path = "../assets/fonts/Arya-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BF7ED31E33E2414099A278E4 /* Modak-Regular.ttf */ = {isa = PBXFileReference; name = "Modak-Regular.ttf"; path = "../assets/fonts/Modak-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +225,14 @@
 				9507CE27F4384ACD9DD67BF9 /* Octicons.ttf */,
 				508D70ABA1B24488989EB939 /* SimpleLineIcons.ttf */,
 				35515CCC583948B58CD710D3 /* Zocial.ttf */,
+				EC0E47BE4DA1424F8ACAFDAF /* Laila-Bold.ttf */,
+				08F90C862B854A0083FC9DDA /* Laila-Light.ttf */,
+				1D2A5E03ADA74F2E97E313C3 /* Laila-Medium.ttf */,
+				2F05D1D9FD464D1796EDF3E1 /* Laila-Regular.ttf */,
+				9095DBE8989A4FE3B9AE3FEA /* Laila-SemiBold.ttf */,
+				3D03C31CDCDD47B6ADB50316 /* Arya-Bold.ttf */,
+				CBC34C0543614943BFD4B417 /* Arya-Regular.ttf */,
+				BF7ED31E33E2414099A278E4 /* Modak-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -366,6 +390,14 @@
 				7F816AEB335846E1897D0C92 /* Octicons.ttf in Resources */,
 				A48DDA9264C04FFCA9A85FDE /* SimpleLineIcons.ttf in Resources */,
 				B39D9F45671C43E1A87EBD58 /* Zocial.ttf in Resources */,
+				D193C2D7F23D4115863D690D /* Laila-Bold.ttf in Resources */,
+				40A835EB1F0A4CA287E3A64C /* Laila-Light.ttf in Resources */,
+				899B5E28092A42A8AC3A6C32 /* Laila-Medium.ttf in Resources */,
+				BDED84824B4749559918B715 /* Laila-Regular.ttf in Resources */,
+				CCC83E812DC549DABAEBA96B /* Laila-SemiBold.ttf in Resources */,
+				061C38C4DEBF4DDF94C36AEC /* Arya-Bold.ttf in Resources */,
+				01F78C5D0ECC4D0AAB537D30 /* Arya-Regular.ttf in Resources */,
+				73F36B17C2E9457FBB414809 /* Modak-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

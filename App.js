@@ -27,14 +27,15 @@ import Naamjap from './appData/components/Naamjap'
 import GeetaAdhyayList from './appData/components/GeetaAdhyayList'
 import AaratiList from './appData/components/AaratiList'
 import OtherAbhanga from './appData/components/OtherAbhanga'
-
+import HomeNew from './appData/components/HomeNew'
+import FullAbhangVertical from './appData/components/FullAbhangVertical'
 
 const DRAWER_WIDTH = Dimensions.get('window').width * 0.83;
 
 const RouteConfigs =
 {
   Home: {
-    screen: Home
+    screen: HomeNew
   },
   Naat: {
     screen: Naat
@@ -75,6 +76,12 @@ const RouteConfigs =
   },
   OtherAbhanga:{
     screen:OtherAbhanga
+  },
+  HomeNew:{
+    screen:HomeNew
+  },
+  FullAbhangVertical:{
+    screen:HomeNew
   }
 };
 

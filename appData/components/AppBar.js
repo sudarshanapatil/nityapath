@@ -21,7 +21,11 @@ class AppBar extends Component {
 
 	render = () => {
 		return (
-			<View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingLeft: 16, paddingRight: 16, width, height: 50, borderBottomWidth: 1, borderBottomColor: '#e6e6e6', backgroundColor: this.props.backgroundColor, }}>
+			<View style={{
+				flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingLeft: 16, paddingRight: 16,
+				width, height: 50, borderBottomWidth: 1, borderBottomColor: '#e6e6e6',
+				backgroundColor: this.props.backgroundColor,
+			}}>
 				<TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
 					{/* <Image
 						source={require('../images/menu.png')}
@@ -62,7 +66,7 @@ const appBarStyles = StyleSheet.create({
 	},
 	appTitle: {
 		fontSize: 26,
-		fontFamily: 'Sahitya-Bold',
+		fontFamily: 'Modak-Regular',
 		color: '#ffffff'
 	},
 });

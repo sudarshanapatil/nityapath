@@ -77,22 +77,23 @@ export default class HaripathList extends Component {
                 </View>
                 <View style={style.screenView}>
                     <ScrollView>
-                        <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', width }}>
+                        <View style={style.haripathListContainer}>
                             {
                                 data.map((item, i) =>
                                     <TouchableOpacity key={item.key} onPress={() => this.onTouchCard(item.id)
                                     }>
                                         <View style={style.card}>
-                                            <ImageBackground
+                                        <Text style={style.cardText}>{item.name}</Text>
+                                            {/* <ImageBackground
                                                 style={style.backImage}
                                                 source={item.imagePath}
                                                 opacity={0.5}
                                                 imageStyle={{ borderRadius: 6 }}
                                                 resizeMode={'stretch'}>
-                                            </ImageBackground>
-                                            <View style={style.imageText}>
-                                                <Text style={style.cardText}>{item.name}</Text>
-                                            </View>
+                                            </ImageBackground> */}
+                                            {/* <View style={style.imageText}>
+                                                
+                                            </View> */}
                                         </View>
                                     </TouchableOpacity>
                                 )
@@ -107,6 +108,13 @@ export default class HaripathList extends Component {
 
 const style = StyleSheet.create(
     {
+
+        haripathListContainer: {
+            flex: 1, flexDirection: 'row', flexWrap: 'wrap', width,
+            justifyContent:'center',
+            marginTop:30,
+            backgroundColor:'black'
+        },
         container: {
             flex: 1,
             width: width, height: height, backgroundColor: 'white'
@@ -131,18 +139,22 @@ const style = StyleSheet.create(
         },
         screenView: {
             width,
-            height: height - 50
+            height: height - 50,
+            backgroundColor:'black'
         },
         card: {
-            width: width / 2 - 10,
-            height: height / 3 - 40,
-            margin: 5,
-            backgroundColor: 'white',
+            width: width  - 100,
+            height: height/12,
+            margin: 10,
+            backgroundColor: '#BC8F8F',
             elevation: 10,
-            // alignItems: 'center',
-            // justifyContent: 'center',
+            padding:10,
+            alignItems: 'center',
+            justifyContent: 'center',
             borderRadius: 10,
-            flexDirection: 'column'
+            flexDirection: 'column',
+            borderColor:'white',
+            borderWidth:5
 
         },
         backImage: {
@@ -150,18 +162,21 @@ const style = StyleSheet.create(
             height: height / 3 - 50,
         },
         imageText: {
-            width: width / 2 - 8,
-            height: height / 3 - 200,
+            width: width  - 8,
+            height: height/8,
             alignItems: 'stretch',
             justifyContent: 'center',
             flexDirection: "row",
+            textAlign:'center',
             backgroundColor: 'orange',
-            fontSize:18,
-            borderRadius:10
+            fontSize: 18,
+            borderRadius: 10
         },
         cardText: {
-            fontSize: 16,
-            fontWeight: 'bold'
+            fontSize: 20,
+            fontWeight: 'bold',
+            textAlign:'center',
+            color:'white'
         }
 
 
