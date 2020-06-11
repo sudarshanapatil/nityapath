@@ -117,13 +117,15 @@ export default class Naamjap extends Component {
                 }}>
                     <ImageBackground
                         style={style.backImage}
-                        source={require('../images/namjap.jpeg')}
+                        // source={require('../images/namjap.jpeg')}
                         opacity={0.5}
                         imageStyle={{ borderRadius: 6 }}
                         resizeMode={'stretch'}>
-                        <View style={{ backgroundColor: 'white', width, height: 100, 
-                        alignItems:'center',
-                        justifyContent:'center'}}>
+                        <View style={{
+                            backgroundColor: 'white', width, height: 100,
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }}>
                             <Text style={style.textStyle}>
                                 संपूर्ण नामजप   - {this.state.totalCount}
                             </Text>
@@ -186,9 +188,12 @@ let style = StyleSheet.create({
     },
     navButtons: { width: width / 3, height: 50, alignItems: 'center', justifyContent: 'center' },
     naapjapButton: {
-        width: 100, height: 100, backgroundColor: 'orange', borderRadius: 50, alignContent: 'center', alignItems: 'center', justifyContent: 'center'
+        width: 100, height: 100, backgroundColor: 'orange',
+        borderRadius: 50, alignContent: 'center',
+        alignItems: 'center', justifyContent: 'center',
+        margin:120
     },
     backImage: {
-        width,height:height-70
+        width, height: height - 70
     },
 })

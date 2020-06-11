@@ -23,7 +23,7 @@ export default class FullAbhang extends Component {
         const abhangList = navigation.getParam('abhangList', 1);
         this.state = {
             isList: 1,
-            initialFontSize: 28,
+            initialFontSize: 18,
             visible: false,
             x: new Animated.Value(0),
             pageNo: newPageNo,
@@ -39,7 +39,7 @@ export default class FullAbhang extends Component {
             pageNo: newPageNo,
             abhangList
         })
-        console.log(this.state, "state")
+        // console.log(this.state, "state")
     }
 
     setPage = (pageType, listPageNo) => {
@@ -81,17 +81,13 @@ export default class FullAbhang extends Component {
         let { pageNo } = this.state;
         return (
             <ScrollView>
-                <ImageBackground
+                {/* <ImageBackground
                     style={style.backImage}
                     source={require('../images/fullpageBack.jpeg')}
                     opacity={0.9}
                     imageStyle={{ borderRadius: 6 }}
-                    resizeMode={'stretch'}>
-                    <View style={{
-                        flex: 1, width: width - 16, alignItems: 'center',
-                        justifyContent: 'center',  margin: 8,
-                        padding: 16, elevation: 10, marginBottom: 100
-                    }}>
+                    resizeMode={'stretch'}> */}
+                    <View style={style.abhangCard}>
                         {/* <Animated.View
                         style={[{
                             flex: 1, width: width - 16, height: height - 16, backgroundColor: '#ffffff',
@@ -105,14 +101,14 @@ export default class FullAbhang extends Component {
                         }]}
                     > */}
                         <Text style={{
-                            fontSize: this.state.initialFontSize, color: 'black',
+                            fontSize: this.state.initialFontSize, color: 'white',
                             fontFamily: 'Laila-Medium',
                         }}>
                             {this.state.abhangList[pageNo - 1].fullAbhang}
                         </Text>
                         {/* </Animated.View> */}
                     </View>
-                </ImageBackground>
+                {/* </ImageBackground> */}
             </ScrollView>
         )
     }
@@ -201,7 +197,7 @@ export default class FullAbhang extends Component {
                 <View style={{
                     flex: 1, width, height: 50, position: 'absolute', alignItems: 'center',
                     bottom: 0, left: 0, flexDirection: "row",
-                    backgroundColor: 'orange', elevation: 15
+                    backgroundColor: '#4682B4', elevation: 15
                 }}>
                     <View style={style.fontView}>
                         <TouchableOpacity onPress={() => this.setPage("prev", listPageNo)}>
@@ -252,12 +248,17 @@ let style = StyleSheet.create({
     },
     navButtons: { width: width / 3, height: 50, alignItems: 'center', justifyContent: 'center' },
     navbar: {
-        width, height: 50, backgroundColor: "orange"
+        width, height: 50, backgroundColor: "#4682B4"
     },
     container: { flex: 1, width, height: height - 100 },
     backImage: {
         width,
         height
     },
-    bottomButtons:{ fontSize: 22, color: 'white' }
+    bottomButtons:{ fontSize: 22, color: 'white' },
+    abhangCard:{
+        flex: 1, width: width - 16, alignItems: 'center',
+        justifyContent: 'center',  margin: 8,backgroundColor:'#4682B4',
+        padding: 16, elevation: 10, marginBottom: 100,textAlign:'center'
+    }
 })

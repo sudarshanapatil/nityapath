@@ -14,27 +14,25 @@ export default class FullAbhang extends Component {
     constructor(props) {
         super(props);
         const { navigation } = props;
-        const name = navigation.getParam('name', 'tp data');
+        const fileName = navigation.getParam('fileName', 'tp data');
         const title = navigation.getParam('title', 'पाण्डुरङ्गाष्टकं');
         const folderName = navigation.getParam('folderName', 'पाण्डुरङ्गाष्टकं');
         this.state = {
             title,
             initialFontSize: 16,
             data: '',
-            name,
+            fileName,
             folderName
         }
 
     }
-    fetchApi = (fileName, folderName) => {
-
-        console.log("API URL", url, this.state.folderName)
+    fetchApi = (fileName, folderName) => {       
         let url = `https://sudarshanapatil.github.io/savedfiles/${folderName}/${fileName}.json`
-        console.log("API URL", url)
+        console.log("API URL", url, this.state.folderName,this.state.fileName)
         fetch(url)
             .then(res => res.json())
             .then((response) => {
-                console.log(response, "API data")
+                // console.log(response, "API data")
                 this.setState({
                     loading: false,
                     data: response.data
@@ -44,18 +42,18 @@ export default class FullAbhang extends Component {
     }
 
     componentDidMount(apiName) {
-        this.fetchApi(this.state.name, this.state.folderName)
+        this.fetchApi(this.state.fileName, this.state.folderName)
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
         const { navigation } = nextProps;
-        const name = navigation.getParam('name', '');
+        const fileName = navigation.getParam('fileName', '');
         const title = navigation.getParam('title', 'पाण्डुरङ्गाष्टकं');
         const folderName = navigation.getParam('folderName', 'पाण्डुरङ्गाष्टकं');
         this.setState({
-            name, title, folderName
+            fileName, title, folderName
         })
-        this.fetchApi(name, folderName)
+        this.fetchApi(fileName, folderName)
     }
 
     renderPage = () => {

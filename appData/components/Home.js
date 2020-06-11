@@ -178,7 +178,8 @@ const style = StyleSheet.create(
         title: {
             fontWeight: 'bold',
             fontSize: 22,
-            color: "white"
+            color: "white",
+             fontFamily: 'Laila-Medium',
         },
         screenView: {
             width,
@@ -203,11 +204,13 @@ const style = StyleSheet.create(
             width: width / 2 - 8,
             height: height / 4 - 8,
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            fontFamily: 'Laila-Medium',
         },
         cardText: {
             fontSize: 20,
-            fontWeight: 'bold'
+            // fontWeight: 'bold',
+            fontFamily: 'Laila-Medium',
         },
         imageContainer: {
             flex: 1,

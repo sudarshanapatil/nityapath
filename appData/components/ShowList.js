@@ -65,9 +65,9 @@ export default class ShowList extends Component {
         // this.setState({ListName:"",title:""})
     }
     search = (text) => {
-        let str='ते वापरून पाहण्‍यासाठी, खालील आपली भाषा आणि इनपुट साधन निवडा आणि टाइप करण्‍यास सुरूवात करा.'
-        let searchAns=str.search("hj");
-        console.log(text,"search",searchAns)
+        let str = 'ते वापरून पाहण्‍यासाठी, खालील आपली भाषा आणि इनपुट साधन निवडा आणि टाइप करण्‍यास सुरूवात करा.'
+        let searchAns = str.search("hj");
+        console.log(text, "search", searchAns)
         this.setState({ showSearch: true })
     }
     render() {
@@ -75,7 +75,8 @@ export default class ShowList extends Component {
             <View style={style.container}>
                 <View style={style.navbar}>
                     <View style={style.backButton}>
-                        <Icon name="arrow-left" size={30} color="white" onPress={() => this.goBack()} />
+                        <Icon name="arrow-left" size={30} color="white"
+                            onPress={() => this.goBack()} />
                     </View>
                     <View style={style.navTitle} >
                         <Text style={style.textNavTitle}>
@@ -84,15 +85,16 @@ export default class ShowList extends Component {
 
                     </View>
                     <View style={style.backButton}>
-                        <Icon name="search" size={30} color="white" onPress={() => this.search()} />
+                        <Icon name="search" size={30} color="white"
+                            onPress={() => this.search()} />
                     </View>
                 </View>
                 <View className='search'>
                     <TextInput
-                    placeholder={'मराठी कीबोर्ड वापरा / Use marathi keyboard'}
+                        placeholder={'मराठी कीबोर्ड वापरा / Use marathi keyboard'}
                         style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
                         onChangeText={text => this.search(text)}
-                        // value={value}
+                    // value={value}
                     />
                 </View>
                 <ScrollView>

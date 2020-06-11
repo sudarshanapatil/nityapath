@@ -21,8 +21,9 @@ export default class GeetaAdhyayList extends Component {
     }
 
     onTouchCard = (id) => {
+        console.log("in geeta adhyay list",id)
         this.props.navigation.navigate("ShowOnePage", {
-            name: `adhyay${id}`,
+            fileName: `adhyay${id}`,
             title: `अध्याय ${id}`,
             folderName: 'geeta'
         })

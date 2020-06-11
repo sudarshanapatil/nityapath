@@ -113,7 +113,7 @@ const style = StyleSheet.create(
             flex: 1, flexDirection: 'row', flexWrap: 'wrap', width,
             justifyContent:'center',
             marginTop:30,
-            backgroundColor:'black'
+            backgroundColor:'#ffb3b3'
         },
         container: {
             flex: 1,
@@ -121,7 +121,7 @@ const style = StyleSheet.create(
         },
         navbar: {
             justifyContent: 'center', flexDirection: 'row',
-            width: width, height: 50, backgroundColor: 'orange'
+            width: width, height: 50, backgroundColor: '#990000'
         },
         backButton: {
             width: 50, height: 50, alignItems: 'center', justifyContent: 'center'
@@ -140,13 +140,13 @@ const style = StyleSheet.create(
         screenView: {
             width,
             height: height - 50,
-            backgroundColor:'black'
+            backgroundColor:'#ffb3b3'
         },
         card: {
             width: width  - 100,
             height: height/12,
             margin: 10,
-            backgroundColor: '#BC8F8F',
+            backgroundColor: '#990000',
             elevation: 10,
             padding:10,
             alignItems: 'center',
@@ -174,9 +174,10 @@ const style = StyleSheet.create(
         },
         cardText: {
             fontSize: 20,
-            fontWeight: 'bold',
+            // fontWeight: 'bold',
             textAlign:'center',
-            color:'white'
+            color:'white',
+            fontFamily: 'Laila-Medium',
         }
 
 

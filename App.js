@@ -28,6 +28,7 @@ import GeetaAdhyayList from './appData/components/GeetaAdhyayList'
 import AaratiList from './appData/components/AaratiList'
 import OtherAbhanga from './appData/components/OtherAbhanga'
 import HomeNew from './appData/components/HomeNew'
+import TitleList from './appData/components/TitleList'
 import FullAbhangVertical from './appData/components/FullAbhangVertical'
 
 const DRAWER_WIDTH = Dimensions.get('window').width * 0.83;
@@ -82,6 +83,9 @@ const RouteConfigs =
   },
   FullAbhangVertical:{
     screen:HomeNew
+  },
+  TitleList:{
+    screen:TitleList
   }
 };
 

@@ -6,46 +6,107 @@ import {
 const { width, height } = Dimensions.get('window');
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import AppBar from './AppBar'
+const nivadakAbhang = [
+    { name: "कृष्ण जन्माचे अभंग ", fileName: 'mangalacharan2' },
+    { name: "राम जन्माचे अभंग  ", fileName: 'mangalacharan1' },
+    { name: "ताटीचे अभंग ", fileName: 'mangalacharan1' },
+    { name: "माऊलींचे समाधीचे अभंग ", fileName: 'mangalacharan1' },
+    { name: "पंढरीत प्रवेश करताना म्हणायचे अभंग " },
+    { name: " वाराचे अभंग  ", fileName: 'vasudev' }]
+const aaratiList = [
+    {
+        id: 1,
+        name: "ज्ञानेश्वर महाराज आरती ",
+        fileName: 'mauli',
+        folderName: 'aarati'
+    },
+    {
+        id: 2,
+        name: "एकनाथ महाराज आरती ",
+        fileName: 'nath',
+        folderName: 'aarati'
+    },
+    {
+        id: 3,
+        name: "तुकाराम महाराज आरती",
+        fileName: 'tukoba',
+        folderName: 'aarati'
+    },
+    {
+        id: 4,
+        name: "नामदेव महाराज आरती",
+        fileName: 'mauli',
+        folderName: 'aarati'
+    },
+    {
+        id: 5,
+        name: "पांडुरंगाची आरती",
+        fileName: 'vitthal',
+        folderName: 'aarati'
+    },
+
+]
+const stotraList = [
+    {
+        id: 1,
+        name: "पाण्डुरङ्गाष्टकं",
+        fileName: 'pandurangashtakam',
+        title: 'पाण्डुरङ्गाष्टकं',
+        folderName: 'stotra'
+    },
+    {
+        id: 2,
+        name: "श्री रामरक्षास्तोत्रम्",
+        fileName: 'ramraksha', title: 'श्री रामरक्षास्तोत्रम्', folderName: 'stotra'
+    },
+    {
+        id: 3,
+        name: "गीता",
+        folderName: 'stotra'
+    },
+    {
+        id: 4,
+        name: "शिवलीला",
+    },
+    {
+        id: 5,
+        name: "विष्णुसहत्रनाम",
+    },
+
+]
 const data = [
     {
         id: 1,
         name: "काकडा",
-        imagePath: require('../images/kakda.jpeg')
     },
     {
         id: 2,
         name: "नाटाचे अभंग",
-        imagePath: require('../images/tp.jpg')
     },
     {
         id: 3,
         name: "नित्यपाठ १२ अभंग ",
-        imagePath: require('../images/niryaan.jpeg')
     },
     {
         id: 4,
         name: "हरिपाठ",
-        imagePath: require('../images/haripath.jpeg')
     },
     {
         id: 5,
         name: "स्तोत्र",
-        imagePath: require('../images/parayan.jpeg')
     },
     {
         id: 6,
-        name: "आरती संग्रह ",
-        imagePath: require('../images/kakda.jpeg')
+        name: "आरती संग्रह "
     },
     {
         id: 7,
         name: "निवडक  अभंग",
-        imagePath: require('../images/nivadakAbhang.jpeg')
     },
     {
         id: 8,
         name: "नामजप",
-        imagePath: require('../images/namjap.jpeg')
+        // imagePath: require('../images/namjap.jpeg')
     }
 ]
 export default class Home extends Component {
@@ -69,6 +130,7 @@ export default class Home extends Component {
     }
 
     onTouchCard = (id) => {
+        console.log("in home ",id)
         switch (id) {
             case 1:
                 this.props.navigation.navigate("KakdaList")
@@ -87,13 +149,16 @@ export default class Home extends Component {
                 this.props.navigation.navigate("HaripathList")
                 break;
             case 5:
-                this.props.navigation.navigate("StotraList")
+                this.props.navigation.navigate("TitleList",
+                    { folderName: 'stotra', titleList: stotraList, title: 'स्तोत्र', type: 'stotra' })
                 break;
             case 6:
-                this.props.navigation.navigate("AaratiList")
+                this.props.navigation.navigate("TitleList",
+                    { folderName: 'aarati', titleList: aaratiList, title: 'आरती संग्रह', type: 'aarati' })
                 break;
             case 7:
-                this.props.navigation.navigate("OtherAbhanga")
+                this.props.navigation.navigate("TitleList",
+                    { folderName: 'aarati', titleList: nivadakAbhang, title: 'निवडक  अभंग', type: 'aarati' })
                 break;
             case 8:
                 this.props.navigation.navigate("Naamjap", { title: "Naamjap" })
@@ -165,13 +230,13 @@ const style = StyleSheet.create(
     {
         homeContainer: {
             flex: 1,
-            flexDirection: 'row', 
+            flexDirection: 'row',
             flexWrap: 'wrap',
             width,
-            marginTop:30,
+            marginTop: 30,
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor:'black'
+            backgroundColor: 'skyblue'
         },
         viewStyle: {
             width,
@@ -186,30 +251,30 @@ const style = StyleSheet.create(
             justifyContent: 'center'
         },
         title: {
-            fontWeight: 'bold',
+            // fontWeight: 'bold',
             fontSize: 22,
             color: "white",
-            fontFamily: 'Arya-Bold',
+            fontFamily: 'Laila-Medium',
         },
         screenView: {
             width,
             height: height - 50,
-            backgroundColor:'black'
+            backgroundColor: 'skyblue'
         },
         card: {
             width: width - 50,
-            height: height / 8 - 40,
+            height: height / 8 - 30,
             margin: 5,
             // marginTop: 30,
-            backgroundColor:'#4682B4',
+            backgroundColor: '#4682B4',
             elevation: 10,
             fontFamily: 'Arya-Regular',
-            color:'white',
+            color: 'white',
             alignItems: 'center',
             justifyContent: 'center',
             borderRadius: 10,
-            borderColor:'white',
-            borderWidth:4
+            borderColor: 'white',
+            borderWidth: 4
 
         },
         backImage: {
@@ -220,12 +285,14 @@ const style = StyleSheet.create(
             width: width / 2 - 8,
             height: height / 4 - 8,
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            fontFamily: 'Laila-Medium',
         },
         cardText: {
             fontSize: 20,
-            fontWeight: 'bold',
-            color:'white'
+            // fontWeight: 'bold',
+            color: 'white',
+            fontFamily: 'Laila-Medium',
         },
         imageContainer: {
             flex: 1,
