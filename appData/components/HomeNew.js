@@ -71,6 +71,16 @@ const stotraList = [
     {
         id: 5,
         name: "विष्णुसहत्रनाम",
+        fileName: 'vishnuSahatraNaam',
+        title: 'विष्णुसहत्रनाम',
+        folderName: 'stotra'
+    },
+    {
+        id: 6,
+        name: "गणेश स्तोत्र ",
+        fileName: 'ganeshStotra',
+        title: 'गणेश स्तोत्र ',
+        folderName: 'stotra'
     },
 
 ]

@@ -19,7 +19,7 @@ export default class FullAbhang extends Component {
         const folderName = navigation.getParam('folderName', 'पाण्डुरङ्गाष्टकं');
         this.state = {
             title,
-            initialFontSize: 16,
+            initialFontSize: 18,
             data: '',
             fileName,
             folderName

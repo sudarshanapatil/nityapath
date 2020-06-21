@@ -22,7 +22,6 @@ export default class TitleList extends Component {
     UNSAFE_componentWillReceiveProps(nextProps) {
         const { navigation } = nextProps;
         const data = navigation.getParam('titleList', 'tp data');
-        console.log("in tiltlelist recive props", data)
         const title = navigation.getParam('title', 'पाण्डुरङ्गाष्टकं');
         const type = navigation.getParam('type', 'stotra');
         this.setState({
@@ -32,20 +31,16 @@ export default class TitleList extends Component {
     onTouchCard = (item) => {
         console.log(item, "touch", item.id)
         if (item.folderName === 'stotra') {
-            switch (item.id) {
-                case 1:
-                    this.props.navigation.navigate("ShowOnePage",
-                        { fileName: 'pandurangashtakam', title: 'पाण्डुरङ्गाष्टकं', folderName: 'stotra' })
-                    break;
-                case 2:
-                    this.props.navigation.navigate("ShowOnePage",
-                        { fileName: 'ramraksha', title: 'श्री रामरक्षास्तोत्रम्', folderName: 'stotra' })
-                    break;
+            switch (item.id) {               
                 case 3:
                     this.props.navigation.navigate("GeetaAdhyayList")
                     break;
                 case 4:
                     this.props.navigation.navigate("ShowList", { databaseList: MauliHaripath })
+                    break;
+                default:
+                    this.props.navigation.navigate("ShowOnePage",
+                        { fileName: item.fileName, title: item.title, folderName: item.folderName })
                     break;
             }
         }
@@ -55,7 +50,6 @@ export default class TitleList extends Component {
 
         }
         else {
-            console.log("in else=========")
             this.props.navigation.navigate("ShowList",
                 { folderName: item.folderName, databaseList: item.fileName, title: item.name })
         }
