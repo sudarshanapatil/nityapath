@@ -21,12 +21,14 @@ export default class ShowList extends Component {
         const folderName = navigation.getParam('folderName');
         console.log("in constructor", listName, title)
         this.state =
-            { listData: [], title, listName, folderName, showSearch: false }
+        {
+            listData: [], title, listName, folderName,
+            searchedData: [], showSearch: false
+        }
 
     }
 
     fetchApi = (fileName, folderName) => {
-
         let url = `https://sudarshanapatil.github.io/savedfiles/${folderName}/${fileName}.json`
         console.log("API URL", url)
         fetch(url)
@@ -35,8 +37,9 @@ export default class ShowList extends Component {
                 // console.log(data, "API data")
                 this.setState({
                     loading: false,
-                    listData: data
+                    listData: data,searchedData:[],showSearch:false
                 })
+                this.textInput.clear()
             })
             .catch(error => console.log(error, "here")) //to catch the errors if any
     }
@@ -65,10 +68,25 @@ export default class ShowList extends Component {
         // this.setState({ListName:"",title:""})
     }
     search = (text) => {
-        let str = 'ते वापरून पाहण्‍यासाठी, खालील आपली भाषा आणि इनपुट साधन निवडा आणि टाइप करण्‍यास सुरूवात करा.'
-        let searchAns = str.search("hj");
-        console.log(text, "search", searchAns)
-        this.setState({ showSearch: true })
+        console.log(text, "search")
+        if (text === '') {
+            console.log("nothing to seach")
+            this.setState({ showSearch: false })
+        }
+        else {
+            let searchedData = this.state.listData.filter((item) => {
+                if (item.fullAbhang.search(text) !== -1)
+                    return item;
+
+            })
+            this.setState({ searchedData, showSearch: true })
+        }
+        // console.log(searchedData, "searchData")
+
+    }
+    searchText = (text) => {
+        this.setState({ searchText: text })
+        console.log(this.state.searchText, "setState")
     }
     render() {
         return (
@@ -86,21 +104,38 @@ export default class ShowList extends Component {
                     </View>
                     <View style={style.backButton}>
                         <Icon name="search" size={30} color="white"
-                            onPress={() => this.search()} />
+                            onPress={text => this.search(this.state.searchText)} />
                     </View>
                 </View>
                 <View className='search'>
-                    <TextInput
+                    {/* tOTDO put search icon  inside /android/app/src/main/res/drawable */}
+                    <TextInput inlineImageLeft='search_icon' clearButtonMode="always"
+                        ref={input => { this.textInput = input }}
                         placeholder={'मराठी कीबोर्ड वापरा / Use marathi keyboard'}
+                        placeholderTextColor='orange'
+                        selectionColor='pink'
+                        // selectTextOnFocus='true'
                         style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
                         onChangeText={text => this.search(text)}
-                    // value={value}
+                        value={this.state.searchText}
                     />
                 </View>
                 <ScrollView>
                     <View style={style.scrollView}>
                         {
-                            this.state.listData.map((item, i) =>
+                            this.state.showSearch && this.state.searchedData.map((item, i) =>
+                                <TouchableOpacity key={i} onPress={() => this.onTouchCard(item.fullAbhang, (i + 1))}>
+                                    <View style={style.card}>
+                                        <View style={{ margin: 10, alignContent: 'center', justifyContent: 'center' }}>
+                                            <Text style={style.cardText}>
+                                                {item.initial}
+                                            </Text>
+                                        </View>
+                                    </View>
+                                </TouchableOpacity>)
+                        }
+                        {
+                            !this.state.showSearch && this.state.listData.map((item, i) =>
                                 <TouchableOpacity key={i} onPress={() => this.onTouchCard(item.fullAbhang, (i + 1))}>
                                     <View style={style.card}>
                                         <View style={{ margin: 10, alignContent: 'center', justifyContent: 'center' }}>
