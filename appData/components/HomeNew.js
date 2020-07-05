@@ -6,11 +6,11 @@ import {
 const { width, height } = Dimensions.get('window');
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import AppBar from './AppBar'
-const nivadakAbhang = [
-    { name: "कृष्ण जन्माचे अभंग ", fileName: 'mangalacharan2' },
-    { name: "राम जन्माचे अभंग  ", fileName: 'mangalacharan1' },
+const nivadakList = [
+    { name: "जन्माचे अभंग ", fileName: 'mangalacharan2' },
+    { name: " विनवणीचे अभंग ", fileName: 'mangalacharan1' },
     { name: "ताटीचे अभंग ", fileName: 'mangalacharan1' },
-    { name: "माऊलींचे समाधीचे अभंग ", fileName: 'mangalacharan1' },
+    { name: "समाधीचे अभंग ", fileName: 'mangalacharan1' },
     { name: "पंढरीत प्रवेश करताना म्हणायचे अभंग " },
     { name: " वाराचे अभंग  ", fileName: 'vasudev' }]
 const aaratiList = [
@@ -167,8 +167,8 @@ export default class Home extends Component {
                     { folderName: 'aarati', titleList: aaratiList, title: 'आरती संग्रह', type: 'aarati' })
                 break;
             case 7:
-                this.props.navigation.navigate("TitleList",
-                    { folderName: 'aarati', titleList: nivadakAbhang, title: 'निवडक  अभंग', type: 'aarati' })
+                this.props.navigation.navigate("TitleListHorizontal",
+                    { folderName: 'others', title: 'निवडक  अभंग', type: 'nivadak',titleList:nivadakList })
                 break;
             case 8:
                 this.props.navigation.navigate("Naamjap", { title: "Naamjap" })

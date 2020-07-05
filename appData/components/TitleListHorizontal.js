@@ -6,29 +6,29 @@ import {
     Dimensions, TouchableOpacity, ImageBackground
 } from 'react-native';
 const { width, height } = Dimensions.get('window');
-let titleList = [
-{ title: "जन्माचे अभंग ", fileName: 'mangalacharan2' },
-{ title: " विनवणीचे अभंग ", fileName: 'mangalacharan1' },
-{ title: "ताटीचे अभंग ", fileName: 'mangalacharan1' },
-{ title: "समाधीचे अभंग ", fileName: 'mangalacharan1' },
-{ title: "पंढरीत प्रवेश करताना म्हणायचे अभंग " }, { title: "मालिका ७ वी " },
-{ title: " वाराचे अभंग  ", fileName: 'vasudev' }]
-let data = titleList.map((data, id) => {
-    return {
-        id,
-        name: data.title,
-        fileName: data.fileName,
-        imagePath: require('../images/tp.jpg')
-    }
-})
-export default class OtherAbhanga extends Component {
-    constructor() {
-        super()
+
+export default class TitleListHorizontal extends Component {
+    constructor(props) {
+        super(props)
+        const { navigation } = props;
+        const listName = navigation.getParam('databaseList');
+        const title = navigation.getParam('title');
+        const folderName = navigation.getParam('folderName');
+        const titleList = navigation.getParam('titleList');
+        console.log("in constructor", listName, title,folderName)
+        this.state = {
+            listName, title,titleList,folderName
+        }
 
     }
     onTouchCard = (data) => {
         console.log(data, "id==")
-        this.props.navigation.navigate("ShowList", { folderName: 'kakada', databaseList: data.fileName, title: data.name })
+        if (data.id === 9)//for gaulan show different page
+            this.props.navigation.navigate("TitleList",
+                { folderName: 'gaulan', titleList: data.titleList, title: data.name })
+        else
+            this.props.navigation.navigate("ShowList",
+                { folderName: 'kakada', databaseList: data.fileName, title: data.name })
 
     }
     goBack = () => {
@@ -42,22 +42,27 @@ export default class OtherAbhanga extends Component {
                 {/* <View style={style.viewStyle}> */}
                 <View style={style.navbar}>
                     <View style={style.backButton}>
-                        <Icon name="arrow-left" size={30} color="white" onPress={() => this.goBack()} />
+                        <Icon name="arrow-left" size={30} color="white"
+                            onPress={() => this.goBack()} />
                     </View>
                     <View style={style.navTitle} >
                         <Text style={style.textNavTitle}>
-                            {'निवडक  अभंग'}
+                            {this.state.title}
                         </Text>
 
                     </View>
                 </View>
                 <View style={style.screenView}>
                     <ScrollView>
-                        <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', width }}>
+                        <View style={{
+                            flex: 1, flexDirection: 'row',
+                            flexWrap: 'wrap', width, marginTop: 40
+                        }}>
                             {
-                                data.map((item, i) =>
-                                    <TouchableOpacity key={item.id} onPress={() => this.onTouchCard(item)
-                                    }>
+                                this.state.titleList.map((item, i) =>
+                                    <TouchableOpacity key={item.id}
+                                        onPress={() => this.onTouchCard(item)
+                                        }>
                                         <View style={style.card}>
                                             <View style={style.imageText}>
                                                 <Text style={style.cardText}>{item.name}</Text>
@@ -84,7 +89,7 @@ const style = StyleSheet.create(
         viewStyle: {
             width,
             height,
-            backgroundColor: `white`
+            backgroundColor: `black`
         },
         navbar: {
             justifyContent: 'center', flexDirection: 'row',
@@ -97,7 +102,8 @@ const style = StyleSheet.create(
             width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'
         },
         textNavTitle: {
-            alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
+            alignContent: 'center', alignItems: 'center', textAlign: "center",
+            fontFamily: 'Laila-Bold',
             alignSelf: 'center', fontSize: 24, color: "white"
         },
         title: {
@@ -112,26 +118,32 @@ const style = StyleSheet.create(
             width: width / 2 - 10,
             height: height / 6 - 40,
             margin: 5,
+            marginBottom: 14,
             backgroundColor: '#FFD480',
             elevation: 10,
             alignItems: 'center',
             justifyContent: 'center',
+            borderColor: 'orange',
             borderRadius: 10,
+            borderWidth: 4,
+            fontFamily: 'Laila-Medium',
 
         },
         backImage: {
             width: width / 2 - 10,
             height: height / 3 - 40,
         },
-        imageText: {
-            width: width / 2 - 8,
-            height: height / 4 - 8,
-            alignItems: 'center',
-            justifyContent: 'center'
-        },
+        // imageText: {
+        //     width: width / 2 - 8,
+        //     height: height / 4 - 8,
+        //     alignItems: 'center',
+        //     justifyContent: 'center',
+        //     fontFamily: 'Laila-Medium',
+        // },
         cardText: {
             fontSize: 20,
-            fontWeight: 'bold'
+            // fontWeight: 'bold',
+            fontFamily: 'Laila-Medium',
         }
     }
 )

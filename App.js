@@ -5,10 +5,10 @@ import {
   Dimensions
 } from 'react-native';
 import {
-	
-	createAppContainer,
-	// DrawerItems,
-	// SafeAreaView
+
+  createAppContainer,
+  // DrawerItems,
+  // SafeAreaView
 } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 // import { createDrawerNavigator } from '@react-navigation/drawer'
@@ -29,6 +29,7 @@ import AaratiList from './appData/components/AaratiList'
 import OtherAbhanga from './appData/components/OtherAbhanga'
 import HomeNew from './appData/components/HomeNew'
 import TitleList from './appData/components/TitleList'
+import TitleListHorizontal from './appData/components/TitleListHorizontal'
 import FullAbhangVertical from './appData/components/FullAbhangVertical'
 
 const DRAWER_WIDTH = Dimensions.get('window').width * 0.83;
@@ -59,33 +60,36 @@ const RouteConfigs =
   },
   KakdaList: {
     screen: KakdaList
-  }, 
+  },
   StotraList: {
     screen: StotraList
   },
-  ShowOnePage:{
-    screen:ShowOnePage
+  ShowOnePage: {
+    screen: ShowOnePage
   },
-  Naamjap:{
-    screen:Naamjap
+  Naamjap: {
+    screen: Naamjap
   },
-  GeetaAdhyayList:{
-    screen:GeetaAdhyayList
+  GeetaAdhyayList: {
+    screen: GeetaAdhyayList
   },
-  AaratiList:{
-    screen:AaratiList
+  AaratiList: {
+    screen: AaratiList
   },
-  OtherAbhanga:{
-    screen:OtherAbhanga
+  OtherAbhanga: {
+    screen: OtherAbhanga
   },
-  HomeNew:{
-    screen:HomeNew
+  HomeNew: {
+    screen: HomeNew
   },
-  FullAbhangVertical:{
-    screen:HomeNew
+  FullAbhangVertical: {
+    screen: HomeNew
   },
-  TitleList:{
-    screen:TitleList
+  TitleList: {
+    screen: TitleList
+  },
+  TitleListHorizontal: {
+    screen: TitleListHorizontal
   }
 };
 
